@@ -4,7 +4,7 @@ import { type ReactNode } from "react";
 import { Toaster } from "sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import appCss from "../styles.css?url";
-import { SITE } from "@/data/site";
+import { SITE, SITE_LINK } from "@/data/site";
 import logo from "@/assets/logos.json";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
