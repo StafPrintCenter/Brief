@@ -7,8 +7,8 @@ import appCss from "../styles.css?url";
 import { SITE } from "@/data/site";
 import { NotFoundComponent, ErrorComponent } from "@/components/errors";
 
-const PAGE_TITLE = `SPC Docs ${SITE.name}`;
-const PAGE_DESC = `Documentation officielle de l'écosystème ${SITE.name} : utilisateurs, développeurs et équipe support.`;
+const PAGE_TITLE = `SPC Interactive Brief | ${SITE.name}`;
+const PAGE_DESC = `Assistant interactif de qualification de projet de ${SITE.name}.`;
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
