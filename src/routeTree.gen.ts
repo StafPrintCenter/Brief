@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CguRouteImport } from './routes/cgu'
 import { Route as HistoryRouteImport } from './routes/history'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SummaryBriefIdRouteImport } from './routes/summary.$briefId'
 
 const IndexRoute = IndexRouteImport.update({
@@ -29,6 +30,11 @@ const HistoryRoute = HistoryRouteImport.update({
   path: '/history',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SummaryBriefIdRoute = SummaryBriefIdRouteImport.update({
   id: '/summary/$briefId',
   path: '/summary/$briefId',
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cgu': typeof CguRoute
   '/history': typeof HistoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/summary/$briefId': typeof SummaryBriefIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cgu': typeof CguRoute
   '/history': typeof HistoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/summary/$briefId': typeof SummaryBriefIdRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,28 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/cgu': typeof CguRoute
   '/history': typeof HistoryRoute
+  '/sitemap.xml': typeof SitemapDotxmlRoute
   '/summary/$briefId': typeof SummaryBriefIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cgu' | '/history' | '/summary/$briefId'
+  fullPaths: '/' | '/cgu' | '/history' | '/sitemap.xml' | '/summary/$briefId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cgu' | '/history' | '/summary/$briefId'
-  id: '__root__' | '/' | '/cgu' | '/history' | '/summary/$briefId'
+  to: '/' | '/cgu' | '/history' | '/sitemap.xml' | '/summary/$briefId'
+  id:
+    | '__root__'
+    | '/'
+    | '/cgu'
+    | '/history'
+    | '/sitemap.xml'
+    | '/summary/$briefId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CguRoute: typeof CguRoute
   HistoryRoute: typeof HistoryRoute
+  SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   SummaryBriefIdRoute: typeof SummaryBriefIdRoute
 }
 
@@ -92,6 +108,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof HistoryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/summary/$briefId': {
       id: '/summary/$briefId'
       path: '/summary/$briefId'
@@ -106,6 +129,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CguRoute: CguRoute,
   HistoryRoute: HistoryRoute,
+  SitemapDotxmlRoute: SitemapDotxmlRoute,
   SummaryBriefIdRoute: SummaryBriefIdRoute,
 }
 export const routeTree = rootRouteImport
