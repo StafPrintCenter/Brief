@@ -15,13 +15,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "SPC Interactive Brief — STAF PRINT CENTER" },
-      {
-        name: "description",
-        content:
-          "Assistant interactif de qualification de projet de STAF PRINT CENTER, Porto-Novo.",
-      },
-      { name: "author", content: "STAF PRINT CENTER" },
+      { title: DOCS_TITLE },
+      { name: "description", content: DOCS_DESC },
+      { name: "author", content: SITE.name },
       { property: "og:title", content: "SPC Interactive Brief — STAF PRINT CENTER" },
       {
         property: "og:description",
