@@ -18,12 +18,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: PAGE_TITLE },
       { name: "description", content: PAGE_DESC },
       { name: "author", content: SITE.name },
-      { property: "og:title", content: "SPC Interactive Brief — STAF PRINT CENTER" },
-      {
-        property: "og:description",
-        content:
-          "Formalisez votre besoin en impression, branding, packaging ou web en 6 étapes.",
-      },
+      { property: "og:title", content: DOCS_TITLE },
+      { property: "og:description", content: DOCS_DESC },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
