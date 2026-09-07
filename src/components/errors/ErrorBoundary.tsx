@@ -8,7 +8,7 @@ export function ErrorComponent({ error, reset }: { error: Error; reset: () => vo
   const router = useRouter();
 
   useEffect(() => {
-    reportError(error, { boundary: "tanstack_root_error_component" });
+    reportError(error, { boundary: "brief_root_error_component" });
   }, [error]);
 
   return (
