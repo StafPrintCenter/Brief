@@ -1,18 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
-
 import { BriefShell } from "@/components/site";
-import {
-  BriefList,
-  DeleteBriefDialog,
-  ShareBriefDialog,
-} from "@/components/pages/history";
-import {
-  deleteBrief,
-  getBriefs,
-  type BriefData,
-} from "@/lib/briefStorage";
+import { BriefList, DeleteBriefDialog, ShareBriefDialog } from "@/components/pages/history";
+import { deleteBrief, getBriefs, type BriefData } from "@/lib/briefStorage";
 import { SITE } from "@/data/site";
 
 const PAGE_TITLE = `Mes briefs enregistrés - SPC Interactive Brief | ${SITE.name}`;
