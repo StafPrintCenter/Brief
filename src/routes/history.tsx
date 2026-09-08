@@ -207,9 +207,8 @@ function HistoryPage() {
                 </span>
               </span>
             </a>
-            <Link
-              to="/summary/$briefId"
-              params={{ briefId: toShare?.id ?? "" }}
+            <a
+              href={toShare ? mailtoLink(toShare) : "#"}
               className="flex items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
             >
               <FileDown className="size-5 text-primary" />
