@@ -1,21 +1,17 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `Conditions Générales d'Utilisation - SPC Interactive Brief | ${SITE.name}`;
+const PAGE_DESC = `Conditions générales d'utilisation de la plateforme SPC Interactive Brief : données personnelles, devis gratuit, propriété intellectuelle et délais.`;
 
 export const Route = createFileRoute("/cgu")({
   head: () => ({
     meta: [
-      { title: "Conditions Générales d'Utilisation — STAF PRINT CENTER" },
-      {
-        name: "description",
-        content:
-          "Conditions générales d'utilisation de la plateforme SPC Interactive Brief : données personnelles, devis gratuit, propriété intellectuelle et délais.",
-      },
-      { property: "og:title", content: "CGU — SPC Interactive Brief" },
-      {
-        property: "og:description",
-        content:
-          "Règles d'utilisation de l'assistant de brief de STAF PRINT CENTER à Porto-Novo.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: CguPage,
