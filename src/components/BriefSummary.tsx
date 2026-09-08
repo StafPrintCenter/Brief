@@ -1,16 +1,10 @@
-import {
-  deadlineLabel,
-  logoLabel,
-  projectTypeLabel,
-  styleLabel,
-  type BriefData,
-} from "@/lib/briefStorage";
+import { deadlineLabel, logoLabel, projectTypeLabel, styleLabel, type BriefData } from "@/lib/briefStorage";
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-1 border-b border-border/70 py-3 last:border-0 sm:flex-row sm:gap-6">
       <span className="w-56 shrink-0 text-sm text-muted-foreground">{label}</span>
-      <span className="text-sm font-medium text-foreground">{value || "—"}</span>
+      <span className="text-sm font-medium text-foreground">{value || "-"}</span>
     </div>
   );
 }
