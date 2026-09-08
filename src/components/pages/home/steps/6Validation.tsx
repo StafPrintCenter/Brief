@@ -1,5 +1,5 @@
 import { CheckCircle2 } from "lucide-react";
-import { StepHeading } from "@/components/site/PrimitivesTemp";
+import { StepHeading } from "@/components/site/Primitives";
 import { BriefSummary } from "@/components/BriefSummary";
 import { Button } from "@/components/ui/button";
 import type { BriefData } from "@/lib/briefStorage";
