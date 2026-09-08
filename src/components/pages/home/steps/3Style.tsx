@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "motion/react";
 import { UploadCloud } from "lucide-react";
-import { StepHeading, FieldLabel, SelectCard } from "@/components/brief/primitives";
+import { StepHeading, FieldLabel, SelectCard } from "@/components/site/Primitives";
 import { VISUAL_STYLES, type BriefData } from "@/lib/briefStorage";
 import { toast } from "sonner";
 
