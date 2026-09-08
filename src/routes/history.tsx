@@ -27,6 +27,7 @@ import {
 import {
   deleteBrief,
   getBriefs,
+  mailtoLink,
   projectTypeLabel,
   whatsappLink,
   type BriefData,
@@ -211,14 +212,31 @@ function HistoryPage() {
               href={toShare ? mailtoLink(toShare) : "#"}
               className="flex items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
             >
+              <Mail className="size-5 text-primary" />
+              <span>
+                <span className="block font-medium">Envoyer par e-mail</span>
+                <span className="text-sm text-muted-foreground">
+                  Message pré-rempli vers {"contact@stafprint.com"}
+                </span>
+              </span>
+            </a>
+            <button
+              type="button"
+              onClick={() => {
+                if (!toShare) return;
+                downloadBriefPdf(toShare);
+                toast.success("PDF généré");
+              }}
+              className="flex items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
+            >
               <FileDown className="size-5 text-primary" />
               <span>
                 <span className="block font-medium">Télécharger en PDF</span>
                 <span className="text-sm text-muted-foreground">
-                  Ouvre la fiche puis lance l'impression
+                  Fichier PDF prêt à envoyer
                 </span>
               </span>
-            </Link>
+            </button>
             <button
               type="button"
               onClick={() => toShare && copyLink(toShare)}
