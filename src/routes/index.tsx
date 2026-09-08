@@ -29,8 +29,8 @@ export const Route = createFileRoute("/")({
     meta: [
       { title: PAGE_TITLE },
       { name: "description", content: PAGE_DESC },
-      { property: "og:title", content: "SPC Interactive Brief — STAF PRINT CENTER" },
-      { property: "og:description", content: "Formalisez votre cahier des charges en 6 étapes guidées, sans jargon technique, puis envoyez-le à STAF PRINT CENTER." },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: WizardPage,
