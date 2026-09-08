@@ -44,7 +44,7 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
   return (
     <Dialog open={Boolean(brief)} onOpenChange={(o) => !o && onClose()}>
       <DialogContent className="max-h-[85vh] max-w-md flex flex-col p-6">
-        <DialogHeader className="shrink-0 border-b">
+        <DialogHeader className="shrink-0 border-b pb-1">
           <DialogTitle>Envoyer le brief {brief?.id}</DialogTitle>
           <DialogDescription>
             Choisissez comment transmettre votre brief à notre service commercial.
