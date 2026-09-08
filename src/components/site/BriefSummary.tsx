@@ -1,5 +1,5 @@
 import { deadlineLabel, logoLabel, projectTypeLabel, styleLabel, type BriefData } from "@/lib/briefStorage";
-import { SITE, SITE_LINK } from "@/data/site";
+import { SITE } from "@/data/site";
 
 function Row({ label, value }: { label: string; value: string }) {
   return (
