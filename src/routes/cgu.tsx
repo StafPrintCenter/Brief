@@ -53,9 +53,6 @@ function CguPage() {
     <div className="min-h-screen bg-background">
       <SiteHeader />
       <main className="mx-auto w-full max-w-3xl px-4 pt-10">
-        <p className="font-mono text-xs uppercase tracking-[0.24em] text-primary">
-          Staf Print Center
-        </p>
         <h1 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
           Conditions Générales d'Utilisation
         </h1>
