@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { BriefShell } from "@/components/site";
-import { BriefSummary } from "@/components/BriefSummary";
+import { BriefSummary } from "@/components/site";
 import { BriefNotFound, SummaryActions } from "@/components/pages/brief";
 import { getBrief, type BriefData } from "@/lib/briefStorage";
 import { SITE } from "@/data/site";
