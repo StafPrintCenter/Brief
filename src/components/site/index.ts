@@ -1,4 +1,4 @@
-export { SiteHeader } from "./Header";
-export { SiteFooter } from "./Footer";
+export { BriefHeader } from "./Header";
+export { PageFooter } from "./Footer";
 export { SiteShell } from "./SiteShell";
 export * from "./Primitives";
