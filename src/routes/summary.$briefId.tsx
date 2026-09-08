@@ -1,13 +1,19 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { FileDown, Mail, MessageCircle, Pencil } from "lucide-react";
+import { FileDown, Globe, Mail, MessageCircle, Pencil } from "lucide-react";
 import { toast } from "sonner";
 import { downloadBriefPdf } from "@/lib/briefPdf";
 
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { BriefSummary } from "@/components/BriefSummary";
 import { Button } from "@/components/ui/button";
-import { getBrief, mailtoLink, whatsappLink, type BriefData } from "@/lib/briefStorage";
+import {
+  getBrief,
+  mailtoLink,
+  siteFormLink,
+  whatsappLink,
+  type BriefData,
+} from "@/lib/briefStorage";
 
 export const Route = createFileRoute("/summary/$briefId")({
   head: () => ({
@@ -37,7 +43,7 @@ function SummaryPage() {
   return (
     <div className="min-h-screen bg-background">
       <SiteHeader />
-      <main className="mx-auto w-full max-w-3xl px-4 pt-10">
+      <main className="mx-auto w-full max-w-5xl px-4 pt-10">
         {brief === undefined ? (
           <p className="text-muted-foreground">Chargement de la fiche…</p>
         ) : brief === null ? (
@@ -52,39 +58,72 @@ function SummaryPage() {
             </Link>
           </div>
         ) : (
-          <>
-            <BriefSummary brief={brief} />
-            <div className="no-print mt-6 flex flex-wrap gap-3">
-              <Button
-                className="bg-gradient-ember"
-                onClick={() => {
-                  downloadBriefPdf(brief);
-                  toast.success("PDF généré");
-                }}
-              >
-                <FileDown className="size-4" />
-                Télécharger en PDF
-              </Button>
-              <a href={whatsappLink(brief)} target="_blank" rel="noreferrer">
-                <Button variant="outline">
-                  <MessageCircle className="size-4" />
-                  Envoyer sur WhatsApp
-                </Button>
-              </a>
-              <a href={mailtoLink(brief)}>
-                <Button variant="outline">
-                  <Mail className="size-4" />
-                  Envoyer par e-mail
-                </Button>
-              </a>
-              <Link to="/" search={{ resume: brief.id }}>
-                <Button variant="ghost">
-                  <Pencil className="size-4" />
-                  Modifier le brief
-                </Button>
-              </Link>
-            </div>
-          </>
+          <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
+            {/* Colonne gauche : actions */}
+            <aside className="no-print lg:sticky lg:top-24 lg:self-start">
+              <div className="rounded-3xl border border-border bg-card p-5 shadow-soft">
+                <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
+                  Actions
+                </p>
+                <h2 className="mt-1 text-lg font-semibold text-foreground">
+                  Envoyer ma fiche
+                </h2>
+                <div className="mt-4 flex flex-col gap-2.5">
+                  <Button
+                    className="w-full justify-start bg-gradient-ember"
+                    onClick={() => {
+                      downloadBriefPdf(brief);
+                      toast.success("PDF généré");
+                    }}
+                  >
+                    <FileDown className="size-4" />
+                    Télécharger en PDF
+                  </Button>
+                  <a
+                    href={whatsappLink(brief)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block"
+                  >
+                    <Button variant="outline" className="w-full justify-start">
+                      <MessageCircle className="size-4" />
+                      Envoyer sur WhatsApp
+                    </Button>
+                  </a>
+                  <a href={mailtoLink(brief)} className="block">
+                    <Button variant="outline" className="w-full justify-start">
+                      <Mail className="size-4" />
+                      Envoyer par e-mail
+                    </Button>
+                  </a>
+                  <a
+                    href={siteFormLink(brief)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="block"
+                  >
+                    <Button variant="outline" className="w-full justify-start">
+                      <Globe className="size-4" />
+                      Via le formulaire du site
+                    </Button>
+                  </a>
+                </div>
+                <div className="mt-5 border-t border-border pt-4">
+                  <Link to="/" search={{ resume: brief.id }} className="block">
+                    <Button variant="ghost" className="w-full justify-start">
+                      <Pencil className="size-4" />
+                      Modifier le brief
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </aside>
+
+            {/* Colonne droite : contenu du brief */}
+            <section className="min-w-0">
+              <BriefSummary brief={brief} />
+            </section>
+          </div>
         )}
       </main>
       <SiteFooter />
