@@ -45,7 +45,7 @@ export function Step2Company({ brief, set, toggleInArray }: Step2Props) {
               key={i}
               type="button"
               onClick={() => set("industry", i)}
-              className={`rounded-full border px-4 py-2 text-sm transition-colors ${brief.industry === i
+              className={`rounded-full border px-4 py-2 text-sm transition-colors cursor-pointer ${brief.industry === i
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
                 }`}
