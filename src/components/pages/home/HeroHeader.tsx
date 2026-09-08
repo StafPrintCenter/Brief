@@ -15,8 +15,8 @@ export function HeroHeader() {
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground"
       >
-        <ShieldCheck className="h-3.5 w-3.5 text-primary" />
-        Le raccourcisseur officiel {SITE.name}
+        <Summary className="h-3.5 w-3.5 text-primary" />
+        Outil de brief de {SITE.name}
       </a>
       <h1 className="mt-3 max-w-3xl text-3xl font-bold leading-tight text-foreground sm:text-5xl">
         Décrivez votre projet, <span className="text-gradient-ember">nous faisons le reste</span>
