@@ -1,3 +1,6 @@
+import { ShieldCheck } from "lucide-react";
+import { SITE, SITE_LINK } from "@/data/site";
+
 export function HeroHeader() {
   return (
     <section className="mb-10">
