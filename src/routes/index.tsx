@@ -14,6 +14,7 @@ import {
   Step4Technical,
   Step5Logistics,
   Step6Validation,
+  StepNavigation,
 } from "@/components/pages/home";
 import { SITE } from "@/data/site";
 
@@ -152,32 +153,13 @@ function WizardPage() {
                 />
               )}
 
-              {/* Navigation de bas de formulaire */}
-              <div className="no-print mt-8 flex items-center justify-between gap-3 border-t border-border pt-6">
-                <Button
-                  variant="ghost"
-                  onClick={() => setStep((s) => Math.max(1, s - 1))}
-                  disabled={step === 1}
-                >
-                  <ArrowLeft className="size-4" />
-                  Retour
-                </Button>
-                <div className="flex items-center gap-2">
-                  <Button variant="outline" onClick={saveDraft} className="hidden sm:inline-flex">
-                    Sauvegarder
-                  </Button>
-                  {step < 6 && (
-                    <Button
-                      className="bg-gradient-ember"
-                      onClick={() => setStep((s) => Math.min(6, s + 1))}
-                      disabled={!canContinue}
-                    >
-                      Continuer
-                      <ArrowRight className="size-4" />
-                    </Button>
-                  )}
-                </div>
-              </div>
+              <StepNavigation
+                step={step}
+                canContinue={canContinue}
+                onPrev={() => setStep((s) => Math.max(1, s - 1))}
+                onNext={() => setStep((s) => Math.min(6, s + 1))}
+                onSaveDraft={saveDraft}
+              />
             </motion.div>
           </AnimatePresence>
         </main>
