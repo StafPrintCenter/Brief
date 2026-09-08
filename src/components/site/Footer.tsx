@@ -41,7 +41,9 @@ export function SiteFooter() {
           >
             Confidentialité
           </a>
-          <Link to="/cgu" className="hover:text-foreground">
+          <Link to="/cgu"
+            className="hover:text-primary underline underline-offset-4 transition-colors"
+          >
             Conditions Générales d'Utilisation
           </Link>
         </div>
