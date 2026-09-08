@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import { FolderClock, Sparkles } from "lucide-react";
 
 export function SiteFooter() {
   return (
