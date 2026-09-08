@@ -281,7 +281,7 @@ export function siteFormLink(brief: BriefData) {
     ``,
     `Merci de me recontacter pour échanger sur les modalités et le devis.`,
   ].join("\n");
-  return `https://stafprint.com/?quote=autre&custom=${encodeURIComponent(
+  return `${SITE_LINK.landingUrl}/?quote=autre&custom=${encodeURIComponent(
     `Brief interactif ${brief.id}`,
   )}&details=${encodeURIComponent(details)}#contact`;
 }
