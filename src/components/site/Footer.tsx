@@ -45,21 +45,6 @@ export function SiteFooter() {
             Conditions Générales d'Utilisation
           </Link>
         </div>
-
-        {/* Séparateur masqué sur mobile */}
-        <span className="hidden text-xs text-muted-foreground/60 sm:inline">|</span>
-
-        <p className="text-xs text-muted-foreground">
-          Un service fourni par{" "}
-          <a
-            href={SITE_LINK.landingUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-medium underline underline-offset-4 hover:text-primary transition-colors"
-          >
-            {SITE.name}
-          </a>
-        </p>
       </div>
     </footer>
   );
