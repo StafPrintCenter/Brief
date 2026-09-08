@@ -90,31 +90,31 @@ export const PROJECT_TYPES: {
   label: string;
   desc: string;
 }[] = [
-  {
-    value: "print",
-    emoji: "🖨️",
-    label: "Imprimerie & Signalétique",
-    desc: "Flyers, affiches, bâches, enseignes, cartes de visite",
-  },
-  {
-    value: "branding",
-    emoji: "🎨",
-    label: "Identité Visuelle & Branding",
-    desc: "Logo, charte graphique, refonte de marque",
-  },
-  {
-    value: "packaging",
-    emoji: "📦",
-    label: "Packaging & Objets Publicitaires",
-    desc: "Étiquettes, boîtes, tee-shirts, gadgets",
-  },
-  {
-    value: "web",
-    emoji: "🌐",
-    label: "Web & Solution Digitale",
-    desc: "Site vitrine, e-commerce, application",
-  },
-];
+    {
+      value: "print",
+      emoji: "🖨️",
+      label: "Imprimerie & Signalétique",
+      desc: "Flyers, affiches, bâches, enseignes, cartes de visite",
+    },
+    {
+      value: "branding",
+      emoji: "🎨",
+      label: "Identité Visuelle & Branding",
+      desc: "Logo, charte graphique, refonte de marque",
+    },
+    {
+      value: "packaging",
+      emoji: "📦",
+      label: "Packaging & Objets Publicitaires",
+      desc: "Étiquettes, boîtes, tee-shirts, gadgets",
+    },
+    {
+      value: "web",
+      emoji: "🌐",
+      label: "Web & Solution Digitale",
+      desc: "Site vitrine, e-commerce, application",
+    },
+  ];
 
 export const INDUSTRIES = [
   "BTP & Immobilier",
