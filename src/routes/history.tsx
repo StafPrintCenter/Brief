@@ -2,7 +2,9 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
 import {
+  Check,
   Copy,
+  ExternalLink,
   Eye,
   FileDown,
   Mail,
@@ -29,6 +31,7 @@ import {
   getBriefs,
   mailtoLink,
   projectTypeLabel,
+  siteFormLink,
   whatsappLink,
   type BriefData,
 } from "@/lib/briefStorage";
@@ -56,6 +59,7 @@ function HistoryPage() {
   const [briefs, setBriefs] = useState<BriefData[]>([]);
   const [toDelete, setToDelete] = useState<BriefData | null>(null);
   const [toShare, setToShare] = useState<BriefData | null>(null);
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => setBriefs(getBriefs()), []);
 
@@ -70,7 +74,9 @@ function HistoryPage() {
   const copyLink = (brief: BriefData) => {
     const url = `${window.location.origin}/summary/${brief.id}`;
     navigator.clipboard.writeText(url);
+    setCopied(true);
     toast.success("Lien du brief copié");
+    window.setTimeout(() => setCopied(false), 2000);
   };
 
   return (
@@ -198,7 +204,7 @@ function HistoryPage() {
               href={toShare ? whatsappLink(toShare) : "#"}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
             >
               <MessageCircle className="size-5 text-primary" />
               <span>
@@ -210,13 +216,27 @@ function HistoryPage() {
             </a>
             <a
               href={toShare ? mailtoLink(toShare) : "#"}
-              className="flex items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
             >
               <Mail className="size-5 text-primary" />
               <span>
                 <span className="block font-medium">Envoyer par e-mail</span>
                 <span className="text-sm text-muted-foreground">
                   Message pré-rempli vers {"contact@stafprint.com"}
+                </span>
+              </span>
+            </a>
+            <a
+              href={toShare ? siteFormLink(toShare) : "#"}
+              target="_blank"
+              rel="noreferrer"
+              className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
+            >
+              <ExternalLink className="size-5 text-primary" />
+              <span>
+                <span className="block font-medium">Envoyer via le formulaire du site</span>
+                <span className="text-sm text-muted-foreground">
+                  Ouvre stafprint.com pré-rempli
                 </span>
               </span>
             </a>
@@ -227,7 +247,7 @@ function HistoryPage() {
                 downloadBriefPdf(toShare);
                 toast.success("PDF généré");
               }}
-              className="flex items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
             >
               <FileDown className="size-5 text-primary" />
               <span>
@@ -240,9 +260,31 @@ function HistoryPage() {
             <button
               type="button"
               onClick={() => toShare && copyLink(toShare)}
-              className="flex items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
+              className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
             >
-              <Copy className="size-5 text-primary" />
+              <AnimatePresence mode="wait" initial={false}>
+                {copied ? (
+                  <motion.span
+                    key="check"
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.5, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <Check className="size-5 text-green-500" />
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="copy"
+                    initial={{ scale: 0.5, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    exit={{ scale: 0.5, opacity: 0 }}
+                    transition={{ duration: 0.15 }}
+                  >
+                    <Copy className="size-5 text-primary" />
+                  </motion.span>
+                )}
+              </AnimatePresence>
               <span>
                 <span className="block font-medium">Copier le lien du brief</span>
                 <span className="text-sm text-muted-foreground">
