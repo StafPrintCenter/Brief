@@ -17,14 +17,18 @@ import {
   Step5Logistics,
   Step6Validation,
 } from "@/components/pages/home";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `SPC Interactive Brief - Qualifiez votre projet en 6 étapes | ${SITE.name}`;
+const PAGE_DESC = `Assistant interactif de qualification de projet de ${SITE.name}. Décrivez votre projet d'impression, branding, packaging ou web en 6 étapes simples et recevez un devis gratuit.`;
 
 export const Route = createFileRoute("/")({
   validateSearch: (search: Record<string, unknown>): { resume?: string } =>
     typeof search["resume"] === "string" ? { resume: search["resume"] } : {},
   head: () => ({
     meta: [
-      { title: "SPC Interactive Brief — Qualifiez votre projet en 6 étapes" },
-      { name: "description", content: "Assistant interactif STAF PRINT CENTER (Porto-Novo) : décrivez votre projet d'impression, branding, packaging ou web en 6 étapes simples et recevez un devis gratuit." },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
       { property: "og:title", content: "SPC Interactive Brief — STAF PRINT CENTER" },
       { property: "og:description", content: "Formalisez votre cahier des charges en 6 étapes guidées, sans jargon technique, puis envoyez-le à STAF PRINT CENTER." },
     ],
