@@ -2,7 +2,7 @@ import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
 import { toast } from "sonner";
-import { SiteShell } from "@/components/site";
+import { BriefShell } from "@/components/site";
 import { emptyBrief, getBrief, saveBrief, type BriefData } from "@/lib/briefStorage";
 import {
   HeroHeader,
@@ -108,7 +108,7 @@ function WizardPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteShell>
+      <BriefShell>
         <main className="mx-auto w-full max-w-5xl px-4">
           <HeroHeader />
 
@@ -163,7 +163,7 @@ function WizardPage() {
             </motion.div>
           </AnimatePresence>
         </main>
-      </SiteShell>
+      </BriefShell>
 
       <CguDialog
         open={cguOpen}
