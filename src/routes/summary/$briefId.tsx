@@ -14,6 +14,10 @@ import {
   whatsappLink,
   type BriefData,
 } from "@/lib/briefStorage";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `Fiche projet - SPC Interactive Brief | ${SITE.name}`;
+const PAGE_DESC = `Fiche récapitulative officielle de votre brief ${SITE.name}. Téléchargez-la en PDF ou envoyez-la par WhatsApp.`;
 
 export const Route = createFileRoute("/summary/$briefId")({
   head: () => ({
