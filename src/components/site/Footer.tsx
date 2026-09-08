@@ -10,12 +10,13 @@ export function SiteFooter() {
         {/* Copyright */}
         <p className="text-center text-xs text-muted-foreground sm:text-left">
           © {new Date().getFullYear()} SPC Interactive Brief · Tous droits réservés.
-          <span className="mx-1.5 text-muted-foreground/50">|</span>
+          <span className="mx-1.5 hidden text-muted-foreground/50 sm:inline">|</span>
+
           <a
             href={SITE_LINK.landingUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-medium underline underline-offset-4 transition-colors hover:text-primary"
+            className="mt-1 block font-medium underline underline-offset-4 transition-colors hover:text-primary sm:mt-0 sm:inline"
           >
             {SITE.name}
           </a>
