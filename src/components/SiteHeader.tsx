@@ -11,7 +11,7 @@ export function SiteHeader() {
           </span>
           <span className="leading-tight">
             <span className="block font-display text-sm font-bold tracking-tight text-foreground">
-              STAF PRINT CENTER
+              STAF PRINT CENTER ANCIEN
             </span>
             <span className="block font-mono text-[0.65rem] uppercase tracking-[0.18em] text-muted-foreground">
               Interactive Brief
@@ -46,7 +46,7 @@ export function SiteFooter() {
   return (
     <footer className="no-print mt-16 border-t border-border/70 py-8">
       <div className="mx-auto flex w-full max-w-5xl flex-col gap-2 px-4 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
-        <p>STAF PRINT CENTER — Porto-Novo, Bénin</p>
+        <p>STAF PRINT CENTER — Porto-Novo, Bénin ANCIEN</p>
         <Link to="/cgu" className="hover:text-foreground">
           Conditions Générales d'Utilisation
         </Link>
