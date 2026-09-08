@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { FolderClock, Sparkles } from "lucide-react";
+import logo from "@/assets/logos.json";
 
 export function SiteHeader() {
   return (
@@ -17,6 +18,9 @@ export function SiteHeader() {
               Interactive Brief
             </span>
           </span>
+        </Link>
+        <Link to="/" className="flex items-center">
+          <img src={logo.dw} alt="Logo SPC" className="h-10 md:h-12 w-auto transition-all duration-300" />
         </Link>
         <nav className="flex items-center gap-1">
           <Link
