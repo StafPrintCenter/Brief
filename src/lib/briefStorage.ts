@@ -1,3 +1,5 @@
+import { SITE } from "@/data/site";
+
 export type ProjectType = "print" | "branding" | "packaging" | "web";
 
 export interface BriefData {
