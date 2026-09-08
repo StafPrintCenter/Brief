@@ -1,5 +1,4 @@
-import { SITE } from "@/data/site";
-
+import { SITE, SITE_LINK } from "@/data/site";
 export type ProjectType = "print" | "branding" | "packaging" | "web";
 
 export interface BriefData {
