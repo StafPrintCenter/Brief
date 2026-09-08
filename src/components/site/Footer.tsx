@@ -1,4 +1,6 @@
 import { Link } from "@tanstack/react-router";
+import { SITE, SITE_LINK } from "@/data/site";
+
 
 export function SiteFooter() {
   return (
