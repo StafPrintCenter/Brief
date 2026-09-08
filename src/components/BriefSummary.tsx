@@ -18,8 +18,8 @@ export function BriefSummary({ brief }: { brief: BriefData }) {
   return (
     <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-soft">
       <div className="bg-gradient-ember px-6 py-6 text-primary-foreground">
-        <p className="font-mono text-xs uppercase tracking-[0.22em] opacity-90">
-          Staf Print Center • Porto-Novo
+        <p className="font-mono text-xs uppercase tracking-[0.22em] opacity-90 text-center sm:text-left">
+          {SITE.name} • SPC Interactive Brief
         </p>
         <h3 className="mt-2 text-2xl font-semibold">Fiche projet</h3>
         <p className="mt-1 font-mono text-sm opacity-95">
