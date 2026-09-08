@@ -114,11 +114,10 @@ function HistoryPage() {
                       </p>
                     </div>
                     <span
-                      className={`rounded-full px-3 py-1 text-xs font-medium ${
-                        b.status === "completed"
-                          ? "bg-primary/10 text-primary"
-                          : "bg-surface text-muted-foreground"
-                      }`}
+                      className={`rounded-full px-3 py-1 text-xs font-medium ${b.status === "completed"
+                        ? "bg-primary/10 text-primary"
+                        : "bg-surface text-muted-foreground"
+                        }`}
                     >
                       {b.status === "completed" ? "Validé" : "Brouillon"}
                     </span>
