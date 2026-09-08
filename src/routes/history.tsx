@@ -11,6 +11,7 @@ import {
   Share2,
   Trash2,
 } from "lucide-react";
+import { downloadBriefPdf } from "@/lib/briefPdf";
 import { toast } from "sonner";
 
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
