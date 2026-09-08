@@ -22,17 +22,10 @@ const PAGE_DESC = `Fiche récapitulative officielle de votre brief ${SITE.name}.
 export const Route = createFileRoute("/summary/$briefId")({
   head: () => ({
     meta: [
-      { title: "Fiche projet — SPC Interactive Brief" },
-      {
-        name: "description",
-        content:
-          "Fiche récapitulative officielle de votre brief STAF PRINT CENTER : téléchargez-la en PDF ou envoyez-la par WhatsApp.",
-      },
-      { property: "og:title", content: "Fiche projet — STAF PRINT CENTER" },
-      {
-        property: "og:description",
-        content: "Récapitulatif complet de votre demande, prêt à être envoyé.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: SummaryPage,
