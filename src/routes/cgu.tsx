@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
+import { BriefShell } from "@/components/site";
 import { SITE } from "@/data/site";
 
 const PAGE_TITLE = `Conditions Générales d'Utilisation - SPC Interactive Brief | ${SITE.name}`;
@@ -50,9 +50,8 @@ const SECTIONS = [
 
 function CguPage() {
   return (
-    <div className="min-h-screen bg-background">
-      <SiteHeader />
-      <main className="mx-auto w-full max-w-3xl px-4 pt-10">
+    <BriefShell>
+      <main className="mx-auto w-full max-w-3xl px-4">
         <h1 className="mt-3 text-3xl font-bold text-foreground sm:text-4xl">
           Conditions Générales d'Utilisation
         </h1>
@@ -72,7 +71,6 @@ function CguPage() {
           ))}
         </div>
       </main>
-      <SiteFooter />
-    </div>
+    </BriefShell>
   );
 }
