@@ -257,7 +257,7 @@ export function buildWhatsAppMessage(brief: BriefData) {
   return lines.join("\n");
 }
 
-export const WHATSAPP_NUMBER = "22997000000";
+export const WHATSAPP_NUMBER = SITE.whatsapp.replace(/\D/g, "");
 
 export function whatsappLink(brief: BriefData) {
   return `${SITE.whatsappLink}?text=${encodeURIComponent(buildWhatsAppMessage(brief))}`;
