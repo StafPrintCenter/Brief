@@ -13,7 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CguRouteImport } from './routes/cgu'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as SummaryBriefIdRouteImport } from './routes/summary.$briefId'
+import { Route as SummaryBriefIdRouteImport } from './routes/summary/$briefId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
