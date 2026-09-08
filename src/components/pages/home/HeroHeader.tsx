@@ -1,4 +1,4 @@
-import { ShieldCheck } from "lucide-react";
+import { Summary } from "lucide-react";
 import { SITE, SITE_LINK } from "@/data/site";
 
 export function HeroHeader() {
