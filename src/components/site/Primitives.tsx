@@ -1,6 +1,6 @@
 import { motion } from "motion/react";
 import { Check, Info } from "lucide-react";
-import type { ReactNode } from "react";
+import { useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
@@ -67,18 +67,29 @@ export function SelectCard({
 }
 
 export function InfoTip({ text }: { text: string }) {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Tooltip>
+    <Tooltip open={open} onOpenChange={setOpen}>
       <TooltipTrigger asChild>
         <button
           type="button"
           aria-label="Explication"
-          className="inline-flex size-5 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-primary"
+          onClick={(e) => {
+            e.preventDefault();
+            setOpen((prev) => !prev);
+          }}
+          className="inline-flex size-5 items-center justify-center rounded-full text-muted-foreground transition-colors hover:text-primary focus:outline-none"
         >
           <Info className="size-4" />
         </button>
       </TooltipTrigger>
-      <TooltipContent className="max-w-[16rem] text-sm">{text}</TooltipContent>
+      <TooltipContent
+        className="max-w-[16rem] text-sm"
+        onPointerDownOutside={() => setOpen(false)}
+      >
+        {text}
+      </TooltipContent>
     </Tooltip>
   );
 }
