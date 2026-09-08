@@ -5,6 +5,7 @@ import {
   Copy,
   Eye,
   FileDown,
+  Mail,
   MessageCircle,
   Pencil,
   Share2,
