@@ -4,11 +4,6 @@ import { SITE, SITE_LINK } from "@/data/site";
 export function HeroHeader() {
   return (
     <section className="mb-10">
-      <p className="font-mono text-xs uppercase tracking-[0.24em] text-primary">
-        brief.stafprint.com
-      </p>
-
-
       <a
         href={SITE_LINK.landingUrl}
         target="_blank"
