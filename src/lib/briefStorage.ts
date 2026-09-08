@@ -260,5 +260,11 @@ export function buildWhatsAppMessage(brief: BriefData) {
 export const WHATSAPP_NUMBER = "22997000000";
 
 export function whatsappLink(brief: BriefData) {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(buildWhatsAppMessage(brief))}`;
+  return `${SITE.whatsappLink}?text=${encodeURIComponent(buildWhatsAppMessage(brief))}`;
+}
+
+export function mailtoLink(brief: BriefData) {
+  const subject = `Brief ${brief.id} — ${brief.companyName || "Nouveau projet"}`;
+  const body = buildWhatsAppMessage(brief).replace(/\*/g, "");
+  return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
