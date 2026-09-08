@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { FolderClock, Sparkles } from "lucide-react";
 import logo from "@/assets/logos.json";
 
-export function SiteHeader() {
+export function BriefHeader() {
   return (
     <header className="no-print sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-4 px-4">
