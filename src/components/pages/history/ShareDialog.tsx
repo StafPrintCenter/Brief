@@ -43,21 +43,23 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
 
   return (
     <Dialog open={Boolean(brief)} onOpenChange={(o) => !o && onClose()}>
-      <DialogContent className="max-w-md">
-        <DialogHeader>
+      <DialogContent className="max-h-[85vh] max-w-md flex flex-col p-6">
+        <DialogHeader className="shrink-0 border-b">
           <DialogTitle>Envoyer le brief {brief?.id}</DialogTitle>
           <DialogDescription>
             Choisissez comment transmettre votre brief à notre service commercial.
           </DialogDescription>
         </DialogHeader>
-        <div className="grid gap-3">
+
+        {/* Zone défilante avec barre de scroll personnalisée */}
+        <div className="mt-2 grid gap-3 overflow-y-auto pr-1">
           <a
             href={brief ? whatsappLink(brief) : "#"}
             target="_blank"
             rel="noreferrer"
             className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
           >
-            <MessageCircle className="size-5 text-primary" />
+            <MessageCircle className="size-5 shrink-0 text-primary" />
             <span>
               <span className="block font-medium">Envoyer sur WhatsApp</span>
               <span className="text-sm text-muted-foreground">
@@ -70,11 +72,11 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
             href={brief ? mailtoLink(brief) : "#"}
             className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
           >
-            <Mail className="size-5 text-primary" />
+            <Mail className="size-5 shrink-0 text-primary" />
             <span>
               <span className="block font-medium">Envoyer par e-mail</span>
               <span className="text-sm text-muted-foreground">
-                Message pré-rempli vers {"contact@stafprint.com"}
+                Message pré-rempli vers contact@stafprint.com
               </span>
             </span>
           </a>
@@ -85,7 +87,7 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
             rel="noreferrer"
             className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
           >
-            <ExternalLink className="size-5 text-primary" />
+            <ExternalLink className="size-5 shrink-0 text-primary" />
             <span>
               <span className="block font-medium">Envoyer via le formulaire du site</span>
               <span className="text-sm text-muted-foreground">
@@ -103,7 +105,7 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
             }}
             className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
           >
-            <FileDown className="size-5 text-primary" />
+            <FileDown className="size-5 shrink-0 text-primary" />
             <span>
               <span className="block font-medium">Télécharger en PDF</span>
               <span className="text-sm text-muted-foreground">
@@ -136,7 +138,7 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
                   exit={{ scale: 0.5, opacity: 0 }}
                   transition={{ duration: 0.15 }}
                 >
-                  <Copy className="size-5 text-primary" />
+                  <Copy className="size-5 shrink-0 text-primary" />
                 </motion.span>
               )}
             </AnimatePresence>
