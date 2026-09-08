@@ -1,11 +1,13 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { FileDown, MessageCircle, Pencil } from "lucide-react";
+import { FileDown, Mail, MessageCircle, Pencil } from "lucide-react";
+import { toast } from "sonner";
+import { downloadBriefPdf } from "@/lib/briefPdf";
 
 import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
 import { BriefSummary } from "@/components/BriefSummary";
 import { Button } from "@/components/ui/button";
-import { getBrief, whatsappLink, type BriefData } from "@/lib/briefStorage";
+import { getBrief, mailtoLink, whatsappLink, type BriefData } from "@/lib/briefStorage";
 
 export const Route = createFileRoute("/summary/$briefId")({
   head: () => ({
@@ -53,7 +55,13 @@ function SummaryPage() {
           <>
             <BriefSummary brief={brief} />
             <div className="no-print mt-6 flex flex-wrap gap-3">
-              <Button className="bg-gradient-ember" onClick={() => window.print()}>
+              <Button
+                className="bg-gradient-ember"
+                onClick={() => {
+                  downloadBriefPdf(brief);
+                  toast.success("PDF généré");
+                }}
+              >
                 <FileDown className="size-4" />
                 Télécharger en PDF
               </Button>
@@ -61,6 +69,12 @@ function SummaryPage() {
                 <Button variant="outline">
                   <MessageCircle className="size-4" />
                   Envoyer sur WhatsApp
+                </Button>
+              </a>
+              <a href={mailtoLink(brief)}>
+                <Button variant="outline">
+                  <Mail className="size-4" />
+                  Envoyer par e-mail
                 </Button>
               </a>
               <Link to="/" search={{ resume: brief.id }}>
