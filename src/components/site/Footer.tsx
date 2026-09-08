@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { SITE, SITE_LINK } from "@/data/site";
 
-export function SiteFooter() {
+export function BriefFooter() {
   const landingBase = SITE_LINK.landingUrl.replace(/\/$/, "");
 
   return (
