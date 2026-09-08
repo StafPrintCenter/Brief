@@ -1,47 +1,19 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useMemo, useState } from "react";
-import {
-  ArrowLeft,
-  ArrowRight,
-  CheckCircle2,
-  MapPin,
-  Truck,
-  UploadCloud,
-} from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, MapPin, Truck, UploadCloud } from "lucide-react";
 import { toast } from "sonner";
-
-import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
+import { SiteShell } from "@/components/site";
 import { BriefSummary } from "@/components/BriefSummary";
 import { FieldLabel, SelectCard, StepHeading } from "@/components/brief/primitives";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
-import {
-  BRANDING_DELIVERABLES,
-  BUDGETS,
-  DEADLINES,
-  FINISHES,
-  INDUSTRIES,
-  OBJECTIVES,
-  PACKAGING_ITEMS,
-  PRINT_SUPPORTS,
-  PROJECT_TYPES,
-  VISUAL_STYLES,
-  WEB_NEEDS,
-  emptyBrief,
-  getBrief,
-  saveBrief,
-  type BriefData,
+  BRANDING_DELIVERABLES, BUDGETS, DEADLINES, FINISHES, INDUSTRIES, OBJECTIVES, PACKAGING_ITEMS, PRINT_SUPPORTS,
+  PROJECT_TYPES, VISUAL_STYLES, WEB_NEEDS, emptyBrief, getBrief, saveBrief, type BriefData
 } from "@/lib/briefStorage";
 
 export const Route = createFileRoute("/")({
@@ -149,7 +121,7 @@ function WizardPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader />
+      <SiteShell />
 
       <main className="mx-auto w-full max-w-5xl px-4 pb-8 pt-10">
         <section className="mb-10">
@@ -183,9 +155,8 @@ function WizardPage() {
                     />
                   </div>
                   <span
-                    className={`hidden text-xs sm:block ${
-                      active ? "font-semibold text-foreground" : "text-muted-foreground"
-                    }`}
+                    className={`hidden text-xs sm:block ${active ? "font-semibold text-foreground" : "text-muted-foreground"
+                      }`}
                   >
                     {index}. {label}
                   </span>
@@ -262,11 +233,10 @@ function WizardPage() {
                         key={i}
                         type="button"
                         onClick={() => set("industry", i)}
-                        className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-                          brief.industry === i
-                            ? "border-primary bg-primary text-primary-foreground"
-                            : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
-                        }`}
+                        className={`rounded-full border px-4 py-2 text-sm transition-colors ${brief.industry === i
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-border bg-card text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                          }`}
                       >
                         {i}
                       </button>
@@ -345,9 +315,8 @@ function WizardPage() {
                     }}
                     onDragLeave={() => setDragging(false)}
                     onDrop={onDrop}
-                    className={`mt-6 flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition-colors ${
-                      dragging ? "border-primary bg-accent/50" : "border-border bg-surface/60"
-                    }`}
+                    className={`mt-6 flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition-colors ${dragging ? "border-primary bg-accent/50" : "border-border bg-surface/60"
+                      }`}
                   >
                     <UploadCloud className="size-7 text-primary" />
                     <span className="mt-3 text-sm font-medium text-foreground">
@@ -591,11 +560,10 @@ function WizardPage() {
                     <button
                       type="button"
                       onClick={() => set("deliveryMode", "pickup")}
-                      className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors ${
-                        brief.deliveryMode === "pickup"
-                          ? "border-primary bg-accent/60"
-                          : "border-border hover:border-primary/50"
-                      }`}
+                      className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors ${brief.deliveryMode === "pickup"
+                        ? "border-primary bg-accent/60"
+                        : "border-border hover:border-primary/50"
+                        }`}
                     >
                       <MapPin className="size-5 text-primary" />
                       <span>
@@ -608,11 +576,10 @@ function WizardPage() {
                     <button
                       type="button"
                       onClick={() => set("deliveryMode", "delivery")}
-                      className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors ${
-                        brief.deliveryMode === "delivery"
-                          ? "border-primary bg-accent/60"
-                          : "border-border hover:border-primary/50"
-                      }`}
+                      className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors ${brief.deliveryMode === "delivery"
+                        ? "border-primary bg-accent/60"
+                        : "border-border hover:border-primary/50"
+                        }`}
                     >
                       <Truck className="size-5 text-primary" />
                       <span>
@@ -635,11 +602,10 @@ function WizardPage() {
                         key={b}
                         type="button"
                         onClick={() => set("budgetRange", b)}
-                        className={`rounded-full border px-4 py-2 text-sm transition-colors ${
-                          brief.budgetRange === b
-                            ? "border-primary bg-primary text-primary-foreground"
-                            : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
-                        }`}
+                        className={`rounded-full border px-4 py-2 text-sm transition-colors ${brief.budgetRange === b
+                          ? "border-primary bg-primary text-primary-foreground"
+                          : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                          }`}
                       >
                         {b}
                       </button>
@@ -722,7 +688,7 @@ function WizardPage() {
         </AnimatePresence>
       </main>
 
-      <SiteFooter />
+      </SiteShell>
 
       <Dialog open={cguOpen} onOpenChange={setCguOpen}>
         <DialogContent className="max-w-lg">
@@ -781,6 +747,6 @@ function WizardPage() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-    </div>
+    </div >
   );
 }
