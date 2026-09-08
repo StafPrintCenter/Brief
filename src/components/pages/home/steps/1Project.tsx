@@ -1,4 +1,4 @@
-import { StepHeading, SelectCard } from "@/components/brief/primitives";
+import { StepHeading, SelectCard } from "@/components/site";
 import { PROJECT_TYPES, type BriefData } from "@/lib/briefStorage";
 
 interface Step1Props {
