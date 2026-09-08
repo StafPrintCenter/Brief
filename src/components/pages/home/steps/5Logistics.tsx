@@ -1,5 +1,5 @@
 import { MapPin, Truck } from "lucide-react";
-import { StepHeading, FieldLabel, SelectCard } from "@/components/site/PrimitivesTemp";
+import { StepHeading, FieldLabel, SelectCard } from "@/components/site/Primitives";
 import { Input } from "@/components/ui/input";
 import { DEADLINES, BUDGETS, type BriefData } from "@/lib/briefStorage";
 
