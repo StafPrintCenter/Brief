@@ -6,7 +6,6 @@ import { toast } from "sonner";
 import { SiteShell } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import { emptyBrief, getBrief, saveBrief, type BriefData } from "@/lib/briefStorage";
-
 import {
   HeroHeader,
   StepProgressBar,
@@ -25,17 +24,9 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "SPC Interactive Brief — Qualifiez votre projet en 6 étapes" },
-      {
-        name: "description",
-        content:
-          "Assistant interactif STAF PRINT CENTER (Porto-Novo) : décrivez votre projet d'impression, branding, packaging ou web en 6 étapes simples et recevez un devis gratuit.",
-      },
+      { name: "description", content: "Assistant interactif STAF PRINT CENTER (Porto-Novo) : décrivez votre projet d'impression, branding, packaging ou web en 6 étapes simples et recevez un devis gratuit." },
       { property: "og:title", content: "SPC Interactive Brief — STAF PRINT CENTER" },
-      {
-        property: "og:description",
-        content:
-          "Formalisez votre cahier des charges en 6 étapes guidées, sans jargon technique, puis envoyez-le à STAF PRINT CENTER.",
-      },
+      { property: "og:description", content: "Formalisez votre cahier des charges en 6 étapes guidées, sans jargon technique, puis envoyez-le à STAF PRINT CENTER." },
     ],
   }),
   component: WizardPage,
