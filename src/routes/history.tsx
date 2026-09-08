@@ -16,7 +16,7 @@ import {
 import { downloadBriefPdf } from "@/lib/briefPdf";
 import { toast } from "sonner";
 
-import { SiteFooter, SiteHeader } from "@/components/SiteHeader";
+import { BriefShell } from "@/components/site";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -35,21 +35,18 @@ import {
   whatsappLink,
   type BriefData,
 } from "@/lib/briefStorage";
+import { SITE } from "@/data/site";
+
+const PAGE_TITLE = `Mes briefs enregistrés - SPC Interactive Brief | ${SITE.name}`;
+const PAGE_DESC = `Retrouvez, partagez ou supprimez les briefs projet créés sur cet appareil pour  ${SITE.name}.`;
 
 export const Route = createFileRoute("/history")({
   head: () => ({
     meta: [
-      { title: "Mes briefs enregistrés — SPC Interactive Brief" },
-      {
-        name: "description",
-        content:
-          "Retrouvez, partagez ou supprimez les briefs projet créés sur cet appareil pour STAF PRINT CENTER.",
-      },
-      { property: "og:title", content: "Mes briefs — STAF PRINT CENTER" },
-      {
-        property: "og:description",
-        content: "Consultez, partagez par WhatsApp ou supprimez vos briefs projet.",
-      },
+      { title: PAGE_TITLE },
+      { name: "description", content: PAGE_DESC },
+      { property: "og:title", content: PAGE_TITLE },
+      { property: "og:description", content: PAGE_DESC },
     ],
   }),
   component: HistoryPage,
@@ -81,95 +78,95 @@ function HistoryPage() {
 
   return (
     <div className="min-h-screen bg-background">
-      <SiteHeader />
-      <main className="mx-auto w-full max-w-5xl px-4 pt-10">
-        <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Mes briefs</h1>
-        <p className="mt-2 max-w-2xl text-muted-foreground">
-          Ces briefs sont enregistrés uniquement sur cet appareil. Vous pouvez les
-          consulter, les envoyer à notre équipe ou les supprimer.
-        </p>
+      <BriefShell>
+        <main className="mx-auto w-full max-w-5xl px-4 pt-10">
+          <h1 className="text-3xl font-bold text-foreground sm:text-4xl">Mes briefs</h1>
+          <p className="mt-2 max-w-2xl text-muted-foreground">
+            Ces briefs sont enregistrés uniquement sur cet appareil. Vous pouvez les
+            consulter, les envoyer à notre équipe ou les supprimer.
+          </p>
 
-        {briefs.length === 0 ? (
-          <div className="mt-10 rounded-3xl border border-dashed border-border bg-card p-12 text-center">
-            <p className="text-muted-foreground">
-              Aucun brief pour l'instant sur cet appareil.
-            </p>
-            <Link to="/" className="mt-5 inline-block">
-              <Button className="bg-gradient-ember">Créer mon premier brief</Button>
-            </Link>
-          </div>
-        ) : (
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <AnimatePresence>
-              {briefs.map((b) => (
-                <motion.article
-                  key={b.id}
-                  layout
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.96 }}
-                  className="flex flex-col rounded-3xl border border-border bg-card p-5 shadow-soft"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div>
-                      <p className="font-mono text-xs text-primary">{b.id}</p>
-                      <h2 className="mt-1 text-lg font-semibold text-foreground">
-                        {b.companyName || "Sans nom"}
-                      </h2>
-                      <p className="text-sm text-muted-foreground">
-                        {projectTypeLabel(b.projectType)}
-                      </p>
+          {briefs.length === 0 ? (
+            <div className="mt-10 rounded-3xl border border-dashed border-border bg-card p-12 text-center">
+              <p className="text-muted-foreground">
+                Aucun brief pour l'instant sur cet appareil.
+              </p>
+              <Link to="/" className="mt-5 inline-block">
+                <Button className="bg-gradient-ember">Créer mon premier brief</Button>
+              </Link>
+            </div>
+          ) : (
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              <AnimatePresence>
+                {briefs.map((b) => (
+                  <motion.article
+                    key={b.id}
+                    layout
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
+                    className="flex flex-col rounded-3xl border border-border bg-card p-5 shadow-soft"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div>
+                        <p className="font-mono text-xs text-primary">{b.id}</p>
+                        <h2 className="mt-1 text-lg font-semibold text-foreground">
+                          {b.companyName || "Sans nom"}
+                        </h2>
+                        <p className="text-sm text-muted-foreground">
+                          {projectTypeLabel(b.projectType)}
+                        </p>
+                      </div>
+                      <span
+                        className={`rounded-full px-3 py-1 text-xs font-medium ${b.status === "completed"
+                          ? "bg-primary/10 text-primary"
+                          : "bg-surface text-muted-foreground"
+                          }`}
+                      >
+                        {b.status === "completed" ? "Validé" : "Brouillon"}
+                      </span>
                     </div>
-                    <span
-                      className={`rounded-full px-3 py-1 text-xs font-medium ${b.status === "completed"
-                        ? "bg-primary/10 text-primary"
-                        : "bg-surface text-muted-foreground"
-                        }`}
-                    >
-                      {b.status === "completed" ? "Validé" : "Brouillon"}
-                    </span>
-                  </div>
 
-                  <p className="mt-3 font-mono text-xs text-muted-foreground">
-                    Créé le {new Date(b.createdAt).toLocaleDateString("fr-FR")}
-                  </p>
+                    <p className="mt-3 font-mono text-xs text-muted-foreground">
+                      Créé le {new Date(b.createdAt).toLocaleDateString("fr-FR")}
+                    </p>
 
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {b.status === "completed" ? (
-                      <Link to="/summary/$briefId" params={{ briefId: b.id }}>
-                        <Button size="sm" variant="outline">
-                          <Eye className="size-4" />
-                          Consulter
-                        </Button>
-                      </Link>
-                    ) : (
-                      <Link to="/" search={{ resume: b.id }}>
-                        <Button size="sm" variant="outline">
-                          <Pencil className="size-4" />
-                          Reprendre
-                        </Button>
-                      </Link>
-                    )}
-                    <Button size="sm" variant="outline" onClick={() => setToShare(b)}>
-                      <Share2 className="size-4" />
-                      Partager
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="text-destructive hover:text-destructive"
-                      onClick={() => setToDelete(b)}
-                    >
-                      <Trash2 className="size-4" />
-                    </Button>
-                  </div>
-                </motion.article>
-              ))}
-            </AnimatePresence>
-          </div>
-        )}
-      </main>
-      <SiteFooter />
+                    <div className="mt-5 flex flex-wrap gap-2">
+                      {b.status === "completed" ? (
+                        <Link to="/summary/$briefId" params={{ briefId: b.id }}>
+                          <Button size="sm" variant="outline">
+                            <Eye className="size-4" />
+                            Consulter
+                          </Button>
+                        </Link>
+                      ) : (
+                        <Link to="/" search={{ resume: b.id }}>
+                          <Button size="sm" variant="outline">
+                            <Pencil className="size-4" />
+                            Reprendre
+                          </Button>
+                        </Link>
+                      )}
+                      <Button size="sm" variant="outline" onClick={() => setToShare(b)}>
+                        <Share2 className="size-4" />
+                        Partager
+                      </Button>
+                      <Button
+                        size="sm"
+                        variant="ghost"
+                        className="text-destructive hover:text-destructive"
+                        onClick={() => setToDelete(b)}
+                      >
+                        <Trash2 className="size-4" />
+                      </Button>
+                    </div>
+                  </motion.article>
+                ))}
+              </AnimatePresence>
+            </div>
+          )}
+        </main>
+      </BriefShell>
 
       <Dialog open={Boolean(toDelete)} onOpenChange={(o) => !o && setToDelete(null)}>
         <DialogContent className="max-w-md">
