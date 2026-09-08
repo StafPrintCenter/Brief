@@ -27,7 +27,7 @@ export function SelectCard({
       whileTap={{ scale: 0.985 }}
       transition={{ type: "spring", stiffness: 420, damping: 28 }}
       className={cn(
-        "group relative flex w-full items-start gap-3 rounded-2xl border bg-card p-4 text-left transition-colors",
+        "group relative flex w-full items-start gap-3 rounded-2xl border bg-card p-4 text-left transition-colors cursor-pointer",
         selected
           ? "border-primary bg-accent/60 shadow-soft"
           : "border-border hover:border-primary/50 hover:bg-surface",
