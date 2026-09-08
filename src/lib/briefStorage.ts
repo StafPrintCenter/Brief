@@ -270,3 +270,19 @@ export function mailtoLink(brief: BriefData) {
   const body = buildWhatsAppMessage(brief).replace(/\*/g, "");
   return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
+
+export function siteFormLink(brief: BriefData) {
+  const details = [
+    `Bonjour,`,
+    ``,
+    `Je viens de compléter un brief interactif sur SPC Interactive Brief (réf. ${brief.id}).`,
+    `Voici le contenu de ma demande :`,
+    ``,
+    buildWhatsAppMessage(brief).replace(/\*/g, ""),
+    ``,
+    `Merci de me recontacter pour échanger sur les modalités et le devis.`,
+  ].join("\n");
+  return `https://stafprint.com/?quote=autre&custom=${encodeURIComponent(
+    `Brief interactif ${brief.id}`,
+  )}&details=${encodeURIComponent(details)}#contact`;
+}
