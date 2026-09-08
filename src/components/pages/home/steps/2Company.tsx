@@ -1,4 +1,4 @@
-import { StepHeading, FieldLabel, SelectCard } from "@/components/site/PrimitivesTemp";
+import { StepHeading, FieldLabel, SelectCard } from "@/components/site/Primitives";
 import { Input } from "@/components/ui/input";
 import { INDUSTRIES, OBJECTIVES, type BriefData } from "@/lib/briefStorage";
 
