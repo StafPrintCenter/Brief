@@ -37,7 +37,7 @@ export function Step5Logistics({ brief, set }: Step5Props) {
           <button
             type="button"
             onClick={() => set("deliveryMode", "pickup")}
-            className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors ${brief.deliveryMode === "pickup"
+            className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors cursor-pointer ${brief.deliveryMode === "pickup"
               ? "border-primary bg-accent/60"
               : "border-border hover:border-primary/50"
               }`}
@@ -53,7 +53,7 @@ export function Step5Logistics({ brief, set }: Step5Props) {
           <button
             type="button"
             onClick={() => set("deliveryMode", "delivery")}
-            className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors ${brief.deliveryMode === "delivery"
+            className={`flex items-center gap-3 rounded-2xl border p-4 text-left transition-colors cursor-pointer ${brief.deliveryMode === "delivery"
               ? "border-primary bg-accent/60"
               : "border-border hover:border-primary/50"
               }`}
@@ -79,7 +79,7 @@ export function Step5Logistics({ brief, set }: Step5Props) {
               key={b}
               type="button"
               onClick={() => set("budgetRange", b)}
-              className={`rounded-full border px-4 py-2 text-sm transition-colors ${brief.budgetRange === b
+              className={`rounded-full border px-4 py-2 text-sm transition-colors cursor-pointer ${brief.budgetRange === b
                 ? "border-primary bg-primary text-primary-foreground"
                 : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
                 }`}
@@ -96,7 +96,7 @@ export function Step5Logistics({ brief, set }: Step5Props) {
           <Input
             value={brief.contactName ?? ""}
             onChange={(e) => set("contactName", e.target.value)}
-            placeholder="Ex : Michel Afovo"
+            placeholder="Ex : Tony CODJO"
           />
         </div>
         <div>
@@ -104,7 +104,7 @@ export function Step5Logistics({ brief, set }: Step5Props) {
           <Input
             value={brief.contactPhone ?? ""}
             onChange={(e) => set("contactPhone", e.target.value)}
-            placeholder="Ex : +229 97 00 00 00"
+            placeholder="Ex : +229 01 97 00 00 00"
           />
         </div>
       </div>
