@@ -1,14 +1,22 @@
 import { Link } from "@tanstack/react-router";
 import { SITE, SITE_LINK } from "@/data/site";
 
-export function PageFooter() {
+export function SiteFooter() {
   const landingBase = SITE_LINK.landingUrl.replace(/\/$/, "");
 
   return (
     <footer className="border-t border-border/70">
       <div className="mx-auto flex min-h-16 w-full max-w-6xl flex-col items-center justify-center gap-2 px-6 py-4 text-center sm:flex-row sm:gap-3 sm:py-0">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} {SITE.name} · Tous droits réservés.
+          © {new Date().getFullYear()} SPC Interactive Brief · Tous droits réservés. |
+          <a
+            href={SITE_LINK.landingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium underline underline-offset-4 hover:text-primary transition-colors"
+          >
+            {SITE.name}
+          </a>
         </p>
 
         {/* Séparateur masqué sur mobile */}
