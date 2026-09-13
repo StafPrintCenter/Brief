@@ -28,12 +28,12 @@ export function BriefFooter() {
           className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground sm:justify-end"
         >
           <a
-            href={`${landingBase}/legal/mentions`}
+            href={`${SITE_LINK.docsUrl}/docs/toolkit/guide-complet`}
             target="_blank"
             rel="noopener noreferrer"
             className="underline underline-offset-4 transition-colors hover:text-primary"
           >
-            Mentions légales
+            Lire la Documentation
           </a>
 
           <span className="text-muted-foreground/50">·</span>
