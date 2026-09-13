@@ -11,9 +11,9 @@ export function BriefPreviewIllustration() {
       <div className="w-full overflow-hidden rounded-2xl border border-border bg-card shadow-xl flex flex-col">
         {/* Barre navigateur */}
         <div className="flex items-center gap-2 border-b border-border bg-muted/50 px-4 py-2.5">
-          <span className="size-2.5 shrink-0 rounded-full bg-coral" />
-          <span className="size-2.5 shrink-0 rounded-full bg-amber" />
-          <span className="size-2.5 shrink-0 rounded-full bg-emerald" />
+          <span className="size-2.5 rounded-full bg-danger shrink-0" />
+          <span className="size-2.5 rounded-full bg-warning shrink-0" />
+          <span className="size-2.5 rounded-full bg-success shrink-0" />
           <div className="ml-3 flex flex-1 items-center justify-start rounded-md bg-background px-3 py-1 font-mono text-[10px] text-muted-foreground max-w-50">
             {stripProtocol(SITE_LINK.briefUrl)}
           </div>
