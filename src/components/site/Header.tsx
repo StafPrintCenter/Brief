@@ -1,13 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { FolderClock, Sparkles } from "lucide-react";
-import logo from "@/assets/logos.json";
+import { ThemeToggle } from "./";
+import { SpcDeskLogo } from "@/components/site";
 
 export function BriefHeader() {
   return (
     <header className="no-print sticky top-0 z-40 border-b border-border/70 bg-background/85 backdrop-blur">
       <div className="mx-auto flex h-16 w-full max-w-5xl items-center justify-between gap-4 px-4">
         <Link to="/" className="flex items-center">
-          <img src={logo.dc} alt="Logo SPC" className="h-10 md:h-12 w-auto transition-all duration-300" />
+          <SpcDeskLogo className="mx-auto h-14 w-auto" />
         </Link>
         <nav className="flex items-center gap-1">
           <Link
