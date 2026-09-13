@@ -104,10 +104,6 @@ export function BriefPreviewIllustration() {
 
       {/* Badge flottant positionné différemment pour accompagner la largeur */}
       <div className="absolute -bottom-4 right-8 hidden items-center gap-2 rounded-xl border border-border bg-card px-4 py-2 shadow-lg sm:flex">
-        <span className="relative flex h-2 w-2">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-          <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-        </span>
         <span className="text-xs font-medium text-muted-foreground">
           Devis généré en 2 min
         </span>
