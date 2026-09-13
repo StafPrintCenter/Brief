@@ -1,4 +1,6 @@
-import { CheckCircle2, Layout, Monitor, Package, PenTool } from "lucide-react";
+import { SITE_LINK } from "@/data/site";
+import { Layout, Monitor, Package, PenTool } from "lucide-react";
+import { stripProtocol } from "@/lib/domain";
 
 export function BriefPreviewIllustration() {
   return (
@@ -13,7 +15,7 @@ export function BriefPreviewIllustration() {
           <span className="size-2.5 shrink-0 rounded-full bg-amber" />
           <span className="size-2.5 shrink-0 rounded-full bg-emerald" />
           <div className="ml-3 flex flex-1 items-center justify-start rounded-md bg-background px-3 py-1 font-mono text-[10px] text-muted-foreground max-w-50">
-            brief.spc.local
+            {stripProtocol(SITE_LINK.briefUrl)}
           </div>
         </div>
 
