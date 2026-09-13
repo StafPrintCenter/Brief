@@ -10,7 +10,7 @@ export function BriefHeader() {
         <Link to="/" className="flex items-center">
           <SpcDeskLogo className="mx-auto h-14 w-auto" />
         </Link>
-        <nav className="flex items-center gap-1">
+        <nav className="flex items-center gap-1 sm:gap-2">
           <Link
             to="/"
             className="inline-flex items-center gap-1.5 rounded-full px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
@@ -28,6 +28,11 @@ export function BriefHeader() {
             <FolderClock className="size-4" />
             <span className="hidden sm:inline">Mes briefs</span>
           </Link>
+
+          <div className="h-4 w-px bg-border/80 mx-1" />
+
+          {/* Theme Switcher */}
+          <ThemeToggle />
         </nav>
       </div>
     </header>
