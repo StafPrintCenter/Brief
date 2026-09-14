@@ -1,15 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import {
-  FileText,
-  FileQuestion,
-  RotateCcw,
-  Home,
-  ArrowLeft,
-  CheckCircle2,
-  XCircle,
-  Sparkles,
-  ClipboardList,
-} from "lucide-react";
+import { FileText, FileQuestion, Home, ArrowLeft, CheckCircle2, XCircle, Sparkles, ClipboardList } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 export function NotFoundComponent() {
