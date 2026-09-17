@@ -5,3 +5,4 @@ export { BriefSummary } from "./BriefSummary";
 export { ThemeToggle } from "./ThemeToggle";
 export { SpcMobLogo, SpcDeskLogo } from "./SpcLogo";
 export * from "./Primitives";
+export { CookieConsent } from "./CookieConsent";
