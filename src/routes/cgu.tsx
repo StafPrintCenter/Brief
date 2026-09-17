@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { BriefShell } from "@/components/site";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Conditions Générales d'Utilisation - SPC Interactive Brief | ${SITE.name}`;
-const PAGE_DESC = `Conditions générales d'utilisation de la plateforme SPC Interactive Brief : données personnelles, devis gratuit, propriété intellectuelle et délais.`;
+const PAGE_TITLE = `Conditions Générales d'Utilisation - ${SITE.tool} | ${SITE.name}`;
+const PAGE_DESC = `Conditions générales d'utilisation de la plateforme ${SITE.tool} : données personnelles, devis gratuit, propriété intellectuelle et délais.`;
 
 export const Route = createFileRoute("/cgu")({
   head: () => ({
@@ -20,11 +20,11 @@ export const Route = createFileRoute("/cgu")({
 const SECTIONS = [
   {
     title: "1. Objet",
-    body: "SPC Interactive Brief est un service gratuit édité par STAF PRINT CENTER (Porto-Novo, Bénin). Il permet à toute personne de formaliser un besoin en impression, identité visuelle, packaging ou solution digitale, puis de le transmettre à notre équipe commerciale.",
+    body: `${SITE.tool} est un service gratuit édité par ${SITE.name} (Porto-Novo, Bénin). Il permet à toute personne de formaliser un besoin en impression, identité visuelle, packaging ou solution digitale, puis de le transmettre à notre équipe commerciale.`,
   },
   {
     title: "2. Données personnelles",
-    body: "Les briefs sont enregistrés dans la mémoire de votre navigateur (stockage local) et ne sont transmis à STAF PRINT CENTER que lorsque vous décidez de les envoyer. Les informations collectées servent exclusivement au traitement de votre demande et ne sont ni revendues, ni cédées à des tiers. Vous pouvez supprimer un brief à tout moment depuis la page « Mes briefs ».",
+    body: `Les briefs sont enregistrés dans la mémoire de votre navigateur (stockage local) et ne sont transmis à ${SITE.name} que lorsque vous décidez de les envoyer. Les informations collectées servent exclusivement au traitement de votre demande et ne sont ni revendues, ni cédées à des tiers. Vous pouvez supprimer un brief à tout moment depuis la page « Mes briefs ».`,
   },
   {
     title: "3. Devis gratuit et sans engagement",
@@ -32,11 +32,11 @@ const SECTIONS = [
   },
   {
     title: "4. Propriété intellectuelle",
-    body: "Les créations graphiques réalisées par STAF PRINT CENTER demeurent sa propriété jusqu'au règlement intégral de la prestation. Le client garantit détenir les droits sur les éléments qu'il transmet (logos, photographies, textes) et assume l'entière responsabilité de leur utilisation.",
+    body: `Les créations graphiques réalisées par ${SITE.name} demeurent sa propriété jusqu'au règlement intégral de la prestation. Le client garantit détenir les droits sur les éléments qu'il transmet (logos, photographies, textes) et assume l'entière responsabilité de leur utilisation.`,
   },
   {
     title: "5. Délais et production",
-    body: "Les délais indiqués (Ultra Express, Standard, Planifié) sont donnés à titre indicatif et courent à partir de la validation du bon à tirer et du versement de l'acompte convenu. Les retards liés à la fourniture tardive d'éléments par le client ne peuvent être imputés à STAF PRINT CENTER.",
+    body: `Les délais indiqués (Ultra Express, Standard, Planifié) sont donnés à titre indicatif et courent à partir de la validation du bon à tirer et du versement de l'acompte convenu. Les retards liés à la fourniture tardive d'éléments par le client ne peuvent être imputés à ${SITE.name}.`,
   },
   {
     title: "6. Retrait et livraison",
@@ -44,7 +44,7 @@ const SECTIONS = [
   },
   {
     title: "7. Modification des CGU",
-    body: "STAF PRINT CENTER se réserve le droit de faire évoluer les présentes conditions. La version applicable est celle publiée sur cette page au moment de l'envoi du brief.",
+    body: `${SITE.name} se réserve le droit de faire évoluer les présentes conditions. La version applicable est celle publiée sur cette page au moment de l'envoi du brief.`,
   },
 ];
 
