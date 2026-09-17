@@ -2,14 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { SITE } from "@/data/site";
 
 interface CguDialogProps {
   open: boolean;
@@ -32,7 +26,7 @@ export function CguDialog({
         <DialogHeader>
           <DialogTitle>Conditions Générales d'Utilisation</DialogTitle>
           <DialogDescription>
-            Avant l'envoi de votre brief à STAF PRINT CENTER, merci de valider les points
+            Avant l'envoi de votre brief à {SITE.name}, merci de valider les points
             suivants.
           </DialogDescription>
         </DialogHeader>
@@ -48,7 +42,7 @@ export function CguDialog({
           </li>
           <li className="flex gap-2">
             <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-primary" />
-            Les créations restent la propriété de STAF PRINT CENTER jusqu'au règlement
+            Les créations restent la propriété de {SITE.name} jusqu'au règlement
             intégral.
           </li>
         </ul>
@@ -59,7 +53,7 @@ export function CguDialog({
             className="mt-0.5"
           />
           <span className="text-sm text-foreground">
-            J'accepte les Conditions Générales d'Utilisation de STAF PRINT CENTER.{" "}
+            J'accepte les Conditions Générales d'Utilisation de {SITE.name}.{" "}
             <Link
               to="/cgu"
               target="_blank"
