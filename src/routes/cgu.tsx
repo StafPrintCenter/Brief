@@ -5,6 +5,9 @@ import { SITE } from "@/data/site";
 const PAGE_TITLE = `Conditions Générales d'Utilisation - ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Conditions générales d'utilisation de la plateforme ${SITE.tool} : données personnelles, devis gratuit, propriété intellectuelle et délais.`;
 
+// Date de dernière mise à jour fixe
+const LAST_UPDATE_DATE = "17 septembre 2026";
+
 export const Route = createFileRoute("/cgu")({
   head: () => ({
     meta: [
@@ -56,7 +59,7 @@ function CguPage() {
           Conditions Générales d'Utilisation
         </h1>
         <p className="mt-3 text-muted-foreground">
-          Dernière mise à jour : {new Date().toLocaleDateString("fr-FR")}
+          Dernière mise à jour : {LAST_UPDATE_DATE}
         </p>
 
         <div className="mt-8 space-y-6">
