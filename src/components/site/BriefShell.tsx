@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import { BriefHeader, BriefFooter } from ".";
+import { BriefHeader, BriefFooter, CookieConsent } from ".";
 
 export function BriefShell({ children }: { children: ReactNode }) {
   return (
@@ -7,6 +7,7 @@ export function BriefShell({ children }: { children: ReactNode }) {
       <BriefHeader />
       <main className="flex-1 py-8">{children}</main>
       <BriefFooter />
+      <CookieConsent />
     </div>
   );
 }
