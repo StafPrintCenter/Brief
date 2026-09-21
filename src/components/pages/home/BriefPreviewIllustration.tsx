@@ -20,42 +20,44 @@ export function BriefPreviewIllustration() {
         </div>
 
         {/* Layout Horizontal : Sidebar + Contenu */}
-        <div className="flex min-h-[22rem] sm:h-64 bg-background/40">
+        <div className="flex bg-background/40">
 
           {/* Sidebar (Étapes) - Visible sur desktop */}
-          <div className="hidden w-[35%] flex-col border-r border-border bg-muted/30 p-5 sm:flex">
-            <div className="mb-6 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
-              Progression
-            </div>
-            <div className="flex flex-col gap-4">
-              {/* Étape 1 : Active */}
-              <div className="flex items-center gap-3 text-primary">
-                <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
-                  1
-                </div>
-                <div className="h-2 w-16 rounded bg-primary" />
+          <div className="hidden w-[32%] flex-col border-r border-border bg-muted/30 p-5 sm:flex justify-between">
+            <div>
+              <div className="mb-5 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">
+                Progression
               </div>
-
-              {/* Étape 2 : À venir */}
-              <div className="flex items-center gap-3 opacity-60">
-                <div className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-muted-foreground/30 text-[10px] font-bold text-muted-foreground">
-                  2
+              <div className="flex flex-col gap-3.5">
+                {/* Étape 1 : Active */}
+                <div className="flex items-center gap-3 text-primary">
+                  <div className="flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+                    1
+                  </div>
+                  <div className="h-2 w-16 rounded bg-primary" />
                 </div>
-                <div className="h-2 w-20 rounded bg-muted-foreground/30" />
-              </div>
 
-              {/* Étape 3 : À venir */}
-              <div className="flex items-center gap-3 opacity-60">
-                <div className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-muted-foreground/30 text-[10px] font-bold text-muted-foreground">
-                  3
+                {/* Étape 2 : À venir */}
+                <div className="flex items-center gap-3 opacity-60">
+                  <div className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-muted-foreground/30 text-[10px] font-bold text-muted-foreground">
+                    2
+                  </div>
+                  <div className="h-2 w-20 rounded bg-muted-foreground/30" />
                 </div>
-                <div className="h-2 w-12 rounded bg-muted-foreground/30" />
+
+                {/* Étape 3 : À venir */}
+                <div className="flex items-center gap-3 opacity-60">
+                  <div className="flex size-5 shrink-0 items-center justify-center rounded-full border-2 border-muted-foreground/30 text-[10px] font-bold text-muted-foreground">
+                    3
+                  </div>
+                  <div className="h-2 w-12 rounded bg-muted-foreground/30" />
+                </div>
               </div>
             </div>
           </div>
 
           {/* Contenu Principal (Grille de choix) */}
-          <div className="flex flex-1 flex-col p-4 sm:p-6">
+          <div className="flex flex-1 flex-col p-4 sm:p-5">
             {/* Barre de progression compacte sur mobile */}
             <div className="flex items-center gap-2 mb-3 sm:hidden">
               <div className="h-1.5 flex-1 rounded-full bg-primary" />
@@ -65,35 +67,35 @@ export function BriefPreviewIllustration() {
             </div>
 
             <div className="h-3.5 w-1/2 rounded bg-foreground/80" />
-            <div className="mt-2 h-2 w-3/4 rounded bg-muted-foreground/40" />
+            <div className="mt-1.5 h-2 w-3/4 rounded bg-muted-foreground/40" />
 
             {/* Cartes (Grille 2 cols adaptative) */}
-            <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2.5 sm:gap-3">
+            <div className="mt-4 grid grid-cols-2 gap-2.5">
               {/* Carte Active */}
-              <div className="flex items-center gap-2 sm:gap-3 rounded-xl border-2 border-primary bg-primary/5 p-2.5 sm:p-3 shadow-sm">
-                <div className="rounded-md bg-primary/10 p-1.5 sm:p-2 text-primary shrink-0">
+              <div className="flex items-center gap-2.5 sm:gap-3 rounded-xl border-2 border-primary bg-primary/5 p-2.5 shadow-sm">
+                <div className="rounded-md bg-primary/10 p-1.5 text-primary shrink-0">
                   <Layout className="size-3.5 sm:size-4" />
                 </div>
                 <div className="h-2 w-12 sm:w-16 rounded bg-primary/80" />
               </div>
 
               {/* Cartes Inactives */}
-              <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-border bg-card p-2.5 sm:p-3 shadow-sm">
-                <div className="rounded-md bg-muted p-1.5 sm:p-2 text-muted-foreground shrink-0">
+              <div className="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-border bg-card p-2.5 shadow-sm">
+                <div className="rounded-md bg-muted p-1.5 text-muted-foreground shrink-0">
                   <Package className="size-3.5 sm:size-4" />
                 </div>
                 <div className="h-2 w-14 sm:w-20 rounded bg-muted-foreground/50" />
               </div>
 
-              <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-border bg-card p-2.5 sm:p-3 shadow-sm">
-                <div className="rounded-md bg-muted p-1.5 sm:p-2 text-muted-foreground shrink-0">
+              <div className="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-border bg-card p-2.5 shadow-sm">
+                <div className="rounded-md bg-muted p-1.5 text-muted-foreground shrink-0">
                   <PenTool className="size-3.5 sm:size-4" />
                 </div>
                 <div className="h-2 w-10 sm:w-14 rounded bg-muted-foreground/50" />
               </div>
 
-              <div className="flex items-center gap-2 sm:gap-3 rounded-xl border border-border bg-card p-2.5 sm:p-3 shadow-sm">
-                <div className="rounded-md bg-muted p-1.5 sm:p-2 text-muted-foreground shrink-0">
+              <div className="flex items-center gap-2.5 sm:gap-3 rounded-xl border border-border bg-card p-2.5 shadow-sm">
+                <div className="rounded-md bg-muted p-1.5 text-muted-foreground shrink-0">
                   <Monitor className="size-3.5 sm:size-4" />
                 </div>
                 <div className="h-2 w-12 sm:w-12 rounded bg-muted-foreground/50" />
@@ -101,7 +103,7 @@ export function BriefPreviewIllustration() {
             </div>
 
             {/* Bouton Suivant */}
-            <div className="mt-auto flex justify-end pt-4">
+            <div className="mt-4 flex justify-end">
               <div className="flex h-7 sm:h-8 w-24 sm:w-28 items-center justify-center rounded-lg bg-primary">
                 <div className="h-1.5 w-10 sm:w-12 rounded bg-primary-foreground/60" />
               </div>
@@ -111,7 +113,7 @@ export function BriefPreviewIllustration() {
       </div>
 
       {/* Badge flottant adaptatif */}
-      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:right-8 sm:-bottom-4 flex items-center gap-2 rounded-xl border border-border bg-card px-3 sm:px-4 py-1.5 sm:py-2 shadow-lg whitespace-nowrap">
+      <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-auto sm:right-6 sm:-bottom-4 flex items-center gap-2 rounded-xl border border-border bg-card px-3 sm:px-4 py-1.5 shadow-lg whitespace-nowrap">
         <span className="text-[11px] sm:text-xs font-medium text-muted-foreground">
           Devis généré en 2 min
         </span>
