@@ -31,19 +31,21 @@ export function BriefFooter() {
           </a>
         </p>
 
-        {/* Liens */}
-        <nav
-          aria-label="Liens légaux"
-          className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground sm:justify-end"
-        >
-          <a
-            href={`${SITE_LINK.docsUrl}/docs/brief/parcours-de-qualification`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline underline-offset-4 transition-colors hover:text-primary"
+        {/* Liens de navigation & Réseaux sociaux */}
+        <div className="flex flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          {/* Liens légaux */}
+          <nav
+            aria-label="Liens légaux"
+            className="flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-xs text-muted-foreground"
           >
-            Lire la Documentation
-          </a>
+            <a
+              href={`${SITE_LINK.docsUrl}/docs/brief/parcours-de-qualification`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline underline-offset-4 transition-colors hover:text-primary"
+            >
+              Lire la Documentation
+            </a>
 
             <span className="text-muted-foreground/50">·</span>
 
