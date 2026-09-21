@@ -58,7 +58,7 @@ export function BriefFooter() {
               Confidentialité
             </a>
 
-          <span className="text-muted-foreground/50">·</span>
+            <span className="text-muted-foreground/50">·</span>
 
             <Link
               to="/cgu"
