@@ -14,7 +14,10 @@ export interface BriefData {
   objectives: string[];
   visualStyle: string;
   hasLogo: "hd" | "low" | "none";
-  logoFileName?: string;
+  logoFileName?: string | undefined;
+  logoPreviewData?: string | undefined;
+  referenceFileData?: string | undefined;
+  referenceFileType?: string | undefined;
   technicalSpecs: Record<string, any>;
   deadline: "urgent" | "standard" | "planned";
   deliveryMode: "pickup" | "delivery";
