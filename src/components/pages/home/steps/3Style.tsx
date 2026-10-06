@@ -1,6 +1,5 @@
 import { StepHeading, FieldLabel, SelectCard, ColorPalettePicker, FileDropzone } from "@/components/site";
 import { VISUAL_STYLES, briefColors, type BriefData } from "@/lib/briefStorage";
-import { ColorPalettePicker, FileDropzone } from "@/components/site";
 
 interface Step3Props {
   brief: BriefData;
