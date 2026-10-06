@@ -6,7 +6,7 @@ export interface Estimate {
 }
 
 export const ESTIMATE_NOTICE =
-  "Estimation indicative en FCFA — devis ferme validé sous 24h par l'équipe commerciale";
+  "Estimation indicative en FCFA - devis ferme validé sous 24h par l'équipe commerciale";
 
 type Range = [number, number];
 
