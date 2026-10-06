@@ -1,11 +1,13 @@
-import { useRouter, Link } from "@tanstack/react-router";
+import { useRouter, Link, type ErrorComponentProps } from "@tanstack/react-router";
 import { AlertCircle, RefreshCw, Home } from "lucide-react";
 import { useEffect } from "react";
 import { reportError } from "@/lib/error/reporting";
 
-export function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
+export function ErrorComponent({ error, reset }: ErrorComponentProps) {
   console.error(error);
   const router = useRouter();
+  const errorName = error instanceof Error ? error.name : "Error";
+  const errorMessage = error instanceof Error ? error.message : "Erreur inconnue.";
 
   useEffect(() => {
     reportError(error, { boundary: "brief_root_error_component" });
@@ -35,8 +37,8 @@ export function ErrorComponent({ error, reset }: { error: Error; reset: () => vo
 
           {/* Details (Visual error output) */}
           <div className="my-6 rounded-2xl bg-muted p-4 border border-border/50 max-h-40 overflow-y-auto font-mono text-xs text-muted-foreground leading-relaxed">
-            <p className="font-semibold text-foreground mb-1">{error?.name || "Error"}</p>
-            <p className="whitespace-pre-wrap">{error?.message || "Erreur inconnue."}</p>
+            <p className="font-semibold text-foreground mb-1">{errorName}</p>
+            <p className="whitespace-pre-wrap">{errorMessage}</p>
           </div>
 
           {/* Actions */}
