@@ -18,6 +18,9 @@ export function Step5Logistics({ brief, set }: Step5Props) {
         subtitle="Ces éléments nous permettent de vous proposer la solution la plus réaliste."
       />
       <div>
+        <div className="mb-7">
+          <EstimateCard brief={brief} compact />
+        </div>
         <FieldLabel>Délai souhaité</FieldLabel>
         <div className="grid gap-3 sm:grid-cols-3">
           {DEADLINES.map((d) => (
