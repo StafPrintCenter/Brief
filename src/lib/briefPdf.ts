@@ -8,6 +8,7 @@ import {
   logoLabel,
   projectTypeLabel,
   styleLabel,
+  visibleSpecs,
   type BriefData,
 } from "@/lib/briefStorage";
 import { ESTIMATE_NOTICE, estimateLabel } from "@/lib/estimate";
