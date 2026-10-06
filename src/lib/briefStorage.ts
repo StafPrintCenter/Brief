@@ -78,7 +78,15 @@ export function saveBrief(brief: BriefData): BriefData {
   const idx = all.findIndex((b) => b.id === brief.id);
   if (idx >= 0) all[idx] = next;
   else all.unshift(next);
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  try {
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+  } catch {
+    // Espace local saturé : on retire le fichier de référence lourd et on réessaie
+    const light = { ...next, referenceFileData: undefined };
+    all[all.findIndex((b) => b.id === next.id)] = light;
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(all));
+    return light;
+  }
   return next;
 }
 
