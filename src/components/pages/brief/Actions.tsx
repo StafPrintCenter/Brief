@@ -1,15 +1,18 @@
-import { Link } from "@tanstack/react-router";
-import { FileDown, Globe, Mail, MessageCircle, Pencil } from "lucide-react";
+import { Link, useNavigate } from "@tanstack/react-router";
+import { CopyPlus, FileDown, Globe, Mail, MessageCircle, Pencil, Sparkles } from "lucide-react";
 import { toast } from "sonner";
+import { BriefQrCode } from "@/components/site/Extras";
 import { downloadBriefPdf } from "@/lib/briefPdf";
 import { Button } from "@/components/ui/button";
-import { mailtoLink, siteFormLink, whatsappLink, type BriefData } from "@/lib/briefStorage";
+import { mailtoLink, siteFormLink, whatsappLink, aiAnalysisLink, duplicateBrief, type BriefData } from "@/lib/briefStorage";
 
 interface SummaryActionsProps {
   brief: BriefData;
 }
 
 export function SummaryActions({ brief }: SummaryActionsProps) {
+  const navigate = useNavigate();
+
   return (
     <aside className="no-print lg:sticky lg:top-24 lg:self-start">
       <div className="rounded-3xl border border-border bg-card p-5 shadow-soft">
@@ -22,14 +25,20 @@ export function SummaryActions({ brief }: SummaryActionsProps) {
         <div className="mt-4 flex flex-col gap-2.5">
           <Button
             className="w-full justify-start bg-gradient-ember"
-            onClick={() => {
-              downloadBriefPdf(brief);
+            onClick={async () => {
+              await downloadBriefPdf(brief);
               toast.success("PDF généré");
             }}
           >
             <FileDown className="size-4" />
             Télécharger en PDF
           </Button>
+          <a href={aiAnalysisLink(brief)} target="_blank" rel="noreferrer" className="block">
+            <Button variant="outline" className="w-full justify-start">
+              <Sparkles className="size-4 text-primary" />
+              Analyser avec l'IA
+            </Button>
+          </a>
           <a
             href={whatsappLink(brief)}
             target="_blank"
@@ -50,22 +59,36 @@ export function SummaryActions({ brief }: SummaryActionsProps) {
           <a
             href={siteFormLink(brief)}
             target="_blank"
-            rel="noreferrer"
-            className="block"
-          >
+            rel="noreferrer" className="block">
             <Button variant="outline" className="w-full justify-start">
               <Globe className="size-4" />
               Via le formulaire du site
             </Button>
           </a>
         </div>
-        <div className="mt-5 border-t border-border pt-4">
+        <div className="mt-5 flex flex-col gap-1 border-t border-border pt-4">
           <Link to="/" search={{ resume: brief.id }} className="block">
             <Button variant="ghost" className="w-full justify-start">
               <Pencil className="size-4" />
               Modifier le brief
             </Button>
           </Link>
+          <Button
+            variant="ghost"
+            className="w-full justify-start"
+            onClick={() => {
+              const copy = duplicateBrief(brief.id);
+              if (!copy) return;
+              toast.success(`Variante ${copy.id} créée`);
+              navigate({ to: "/", search: { resume: copy.id } });
+            }}
+          >
+            <CopyPlus className="size-4" />
+            Dupliquer (variante)
+          </Button>
+        </div>
+        <div className="mt-5 border-t border-border pt-4">
+          <BriefQrCode id={brief.id} />
         </div>
       </div>
     </aside>
