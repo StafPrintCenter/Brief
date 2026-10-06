@@ -90,6 +90,49 @@ export function saveBrief(brief: BriefData): BriefData {
   return next;
 }
 
+export function duplicateBrief(id: string): BriefData | undefined {
+  const src = getBrief(id);
+  if (!src) return undefined;
+  const now = new Date().toISOString();
+  const copy: BriefData = {
+    ...structuredClone(src),
+    id: generateBriefId(),
+    createdAt: now,
+    companyName: src.companyName.startsWith("(Copie)")
+      ? src.companyName
+      : `(Copie) ${src.companyName}`,
+    status: "draft",
+    cguAccepted: false,
+  };
+  return saveBrief(copy);
+}
+
+export const COLOR_PALETTES: { name: string; colors: string[] }[] = [
+  { name: "Corporate & Confiance", colors: ["#0D47A1", "#1976D2", "#FFFFFF"] },
+  { name: "Luxe & Prestige", colors: ["#111111", "#D4AF37", "#FFFFFF"] },
+  { name: "Éco & Nature", colors: ["#2E7D32", "#8D6E63", "#F5F5DC"] },
+  { name: "Créatif & Dynamique", colors: ["#FF6D00", "#6200EA", "#00B0FF"] },
+  { name: "Afro-Contemporain", colors: ["#E65100", "#3E2723", "#FFD54F"] },
+];
+
+/** Clés de technicalSpecs affichées de façon spécifique (pas dans la liste générique). */
+export const HIDDEN_SPEC_KEYS = ["colors"];
+
+export function briefColors(brief: BriefData): string[] {
+  const c = brief.technicalSpecs?.["colors"];
+  return Array.isArray(c) ? c : [];
+}
+
+export function visibleSpecs(brief: BriefData): [string, unknown][] {
+  return Object.entries(brief.technicalSpecs ?? {}).filter(
+    ([k, v]) =>
+      !HIDDEN_SPEC_KEYS.includes(k) &&
+      v !== "" &&
+      v != null &&
+      !(Array.isArray(v) && v.length === 0),
+  );
+}
+
 export function deleteBrief(id: string) {
   if (typeof window === "undefined") return;
   const all = getBriefs().filter((b) => b.id !== id);
