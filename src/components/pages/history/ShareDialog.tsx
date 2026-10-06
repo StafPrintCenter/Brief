@@ -11,6 +11,22 @@ interface ShareBriefDialogProps {
   onClose: () => void;
 }
 
+function SwapIcon({ done, icon }: { done: boolean; icon: React.ReactNode }) {
+  return (
+    <AnimatePresence mode="wait" initial={false}>
+      <motion.span
+        key={done ? "check" : "icon"}
+        initial={{ scale: 0.5, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        exit={{ scale: 0.5, opacity: 0 }}
+        transition={{ duration: 0.15 }}
+      >
+        {done ? <Check className="size-5 text-green-500" /> : icon}
+      </motion.span>
+    </AnimatePresence>
+  );
+}
+
 export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
   const [copied, setCopied] = useState(false);
 
