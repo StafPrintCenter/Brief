@@ -236,7 +236,7 @@ export function styleLabel(v: string) {
 
 export function buildWhatsAppMessage(brief: BriefData) {
   const lines = [
-    `*${SITE.name} — Brief ${brief.id}*`,
+    `*${SITE.name} - Brief ${brief.id}*`,
     ``,
     `Structure : ${brief.companyName}`,
     brief.slogan ? `Slogan : ${brief.slogan}` : "",
