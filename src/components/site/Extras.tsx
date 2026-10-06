@@ -235,7 +235,7 @@ export function FileDropzone({
           Glissez votre logo ou un fichier de référence, ou cliquez pour le choisir
         </span>
         <span className="mt-1 text-xs text-muted-foreground">
-          PNG, JPG, SVG, WebP ou PDF — 5 Mo maximum
+          PNG, JPG, SVG, WebP ou PDF - 5 Mo maximum
         </span>
         <input
           type="file"
