@@ -103,7 +103,8 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
             type="button"
             onClick={async () => {
               if (!brief) return;
-              downloadBriefPdf(brief);
+              await downloadBriefPdf(brief);
+              flash("pdf");
               toast.success("PDF généré");
             }}
             className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
