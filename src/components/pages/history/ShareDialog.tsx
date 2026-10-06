@@ -4,7 +4,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { downloadBriefPdf } from "@/lib/briefPdf";
-import { mailtoLink, siteFormLink, whatsappLink, type BriefData } from "@/lib/briefStorage";
+import { mailtoLink, siteFormLink, whatsappLink, aiAnalysisLink, type BriefData } from "@/lib/briefStorage";
 
 interface ShareBriefDialogProps {
   brief: BriefData | null;
