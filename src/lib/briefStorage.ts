@@ -302,7 +302,9 @@ export function buildWhatsAppMessage(brief: BriefData) {
     `Objectifs : ${brief.objectives.join(", ") || "—"}`,
     `Style visuel : ${styleLabel(brief.visualStyle)}`,
     `Logo : ${logoLabel(brief.hasLogo)}`,
-    ...Object.entries(brief.technicalSpecs).map(
+    brief.logoFileName ? `Fichier transmis : ${brief.logoFileName}` : "",
+    briefColors(brief).length ? `Couleurs : ${briefColors(brief).join(", ")}` : "",
+    ...visibleSpecs(brief).map(
       ([k, v]) => `${k} : ${Array.isArray(v) ? v.join(", ") : String(v)}`,
     ),
     `Délai : ${deadlineLabel(brief.deadline)}`,
