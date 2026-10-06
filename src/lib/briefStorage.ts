@@ -227,6 +227,7 @@ export const FINISHES = [
   { value: "pelliculage", label: "Pelliculage", tip: "Fin film plastique collé sur le papier : plus résistant à l'eau et aux déchirures." },
   { value: "vernis", label: "Vernis sélectif", tip: "Vernis appliqué sur une zone précise (logo, titre) pour la faire ressortir au toucher." },
   { value: "dorure", label: "Dorure à chaud", tip: "Effet métallisé or ou argent appliqué à chaud, très prestige." },
+  { value: "gaufrage", label: "Gaufrage", tip: "Relief embossé dans le papier, élégant et perceptible au toucher." },
 ];
 
 export const PRINT_SUPPORTS = [
