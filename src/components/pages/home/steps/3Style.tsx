@@ -9,17 +9,6 @@ interface Step3Props {
 }
 
 export function Step3Style({ brief, set, setBrief }: Step3Props) {
-  const [dragging, setDragging] = useState(false);
-
-  const onDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    setDragging(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) {
-      setBrief((b) => ({ ...b, hasLogo: "hd", logoFileName: file.name }));
-      toast.success(`Logo « ${file.name} » ajouté au brief`);
-    }
-  };
 
   return (
     <>
