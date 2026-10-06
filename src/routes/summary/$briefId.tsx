@@ -6,7 +6,7 @@ import { BriefNotFound, SummaryActions } from "@/components/pages/brief";
 import { getBrief, type BriefData } from "@/lib/briefStorage";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `Fiche projet - SPC Interactive Brief | ${SITE.name}`;
+const PAGE_TITLE = `Fiche projet - ${SITE.tool} | ${SITE.name}`;
 const PAGE_DESC = `Fiche récapitulative officielle de votre brief ${SITE.name}. Téléchargez-la en PDF ou envoyez-la par WhatsApp.`;
 
 export const Route = createFileRoute("/summary/$briefId")({
