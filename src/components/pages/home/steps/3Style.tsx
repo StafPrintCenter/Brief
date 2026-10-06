@@ -53,41 +53,30 @@ export function Step3Style({ brief, set, setBrief }: Step3Props) {
         </div>
       </div>
 
-      {brief.hasLogo === "hd" && (
-        <motion.label
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          onDragOver={(e) => {
-            e.preventDefault();
-            setDragging(true);
-          }}
-          onDragLeave={() => setDragging(false)}
-          onDrop={onDrop}
-          className={`mt-6 flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed p-8 text-center transition-colors ${dragging ? "border-primary bg-accent/50" : "border-border bg-surface/60"
-            }`}
-        >
-          <UploadCloud className="size-7 text-primary" />
-          <span className="mt-3 text-sm font-medium text-foreground">
-            Glissez votre logo ici, ou cliquez pour le choisir
-          </span>
-          <span className="mt-1 text-xs text-muted-foreground">
-            Le fichier reste sur votre appareil : seul son nom est joint au brief.
-          </span>
-          {brief.logoFileName ? (
-            <span className="mt-3 rounded-full bg-primary/10 px-3 py-1 font-mono text-xs text-primary">
-              {brief.logoFileName}
-            </span>
-          ) : null}
-          <input
-            type="file"
-            className="hidden"
-            onChange={(e) => {
-              const f = e.target.files?.[0];
-              if (f) set("logoFileName", f.name);
-            }}
-          />
-        </motion.label>
-      )}
+      <FileDropzone
+        brief={brief}
+        onChange={(patch) => setBrief((b) => ({ ...b, ...patch }))}
+      />
+
+      <div className="mt-8">
+        <FieldLabel tip="Choisissez une palette signature ou composez la vôtre avec des codes couleur.">
+          Palette chromatique & moodboard
+        </FieldLabel>
+        <ColorPalettePicker
+          colors={briefColors(brief)}
+          paletteName={brief.technicalSpecs["Palette"]}
+          onChange={(colors, name) =>
+            setBrief((b) => ({
+              ...b,
+              technicalSpecs: {
+                ...b.technicalSpecs,
+                colors,
+                Palette: name ?? (colors.length ? "Personnalisée" : ""),
+              },
+            }))
+          }
+        />
+      </div>
     </>
   );
 }
