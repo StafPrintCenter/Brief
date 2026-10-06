@@ -73,7 +73,7 @@ export function generateBriefPdf(brief: BriefData): jsPDF {
   doc.text(SITE.name, margin, 15);
   doc.setFont("helvetica", "normal");
   doc.setFontSize(9);
-  doc.text(`${SITE.slogan} — ${SITE.city}`, margin, 21);
+  doc.text(`${SITE.slogan} - ${SITE.city}`, textX, 21);
   doc.setFontSize(11);
   doc.setFont("helvetica", "bold");
   doc.text("Fiche projet", margin, 30);
