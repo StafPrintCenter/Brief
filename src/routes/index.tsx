@@ -18,7 +18,7 @@ import {
 } from "@/components/pages/home";
 import { SITE } from "@/data/site";
 
-const PAGE_TITLE = `SPC Interactive Brief - Qualifiez votre projet en 6 étapes | ${SITE.name}`;
+const PAGE_TITLE = `${SITE.tool} - Qualifiez votre projet en 6 étapes | ${SITE.name}`;
 const PAGE_DESC = `Assistant interactif de qualification de projet de ${SITE.name}. Décrivez votre projet d'impression, branding, packaging ou web en 6 étapes simples et recevez un devis gratuit.`;
 
 export const Route = createFileRoute("/")({
