@@ -118,6 +118,22 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
             </span>
           </button>
 
+          <a
+            href={brief ? aiAnalysisLink(brief) : "#"}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => flash("ai")}
+            className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-surface"
+          >
+            <SwapIcon done={done === "ai"} icon={<Sparkles className="size-5 text-primary" />} />
+            <span>
+              <span className="block font-medium">Analyser avec l'IA</span>
+              <span className="text-sm text-muted-foreground">
+                Audit technique par SPC Inteligence
+              </span>
+            </span>
+          </a>
+
           <button
             type="button"
             onClick={() => brief && copyLink(brief)}
