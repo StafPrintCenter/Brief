@@ -108,7 +108,7 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
             }}
             className="flex cursor-pointer items-center gap-3 rounded-2xl border border-border p-4 text-left transition-colors hover:border-primary/60 hover:bg-surface"
           >
-            <FileDown className="size-5 shrink-0 text-primary" />
+            <SwapIcon done={done === "pdf"} icon={<FileDown className="size-5 text-primary" />} />
             <span>
               <span className="block font-medium">Télécharger en PDF</span>
               <span className="text-sm text-muted-foreground">
