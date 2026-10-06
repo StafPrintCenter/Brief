@@ -1,8 +1,9 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { Eye, Pencil, Share2, Trash2 } from "lucide-react";
+import { toast } from "sonner";
+import { Eye, Pencil, Share2, Trash2, CopyPlus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { projectTypeLabel, type BriefData } from "@/lib/briefStorage";
+import { projectTypeLabel, duplicateBrief, type BriefData } from "@/lib/briefStorage";
 
 interface BriefCardProps {
   brief: BriefData;
@@ -11,6 +12,8 @@ interface BriefCardProps {
 }
 
 export function BriefCard({ brief, onShare, onDelete }: BriefCardProps) {
+  const navigate = useNavigate();
+
   return (
     <motion.article
       layout
@@ -70,6 +73,19 @@ export function BriefCard({ brief, onShare, onDelete }: BriefCardProps) {
           onClick={() => onDelete(brief)}
         >
           <Trash2 className="size-4" />
+        </Button>
+        <Button
+          size="sm"
+          variant="outline"
+          onClick={() => {
+            const copy = duplicateBrief(b.id);
+            if (!copy) return;
+            toast.success(`Variante ${copy.id} créée`);
+            navigate({ to: "/", search: { resume: copy.id } });
+          }}
+        >
+          <CopyPlus className="size-4" />
+          Dupliquer
         </Button>
       </div>
     </motion.article>
