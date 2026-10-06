@@ -204,6 +204,9 @@ export function Step4Technical({
       )}
 
       <div className="mt-7">
+        <EstimateCard brief={brief} />
+      </div>
+      <div className="mt-7">
         <FieldLabel>Précisions libres</FieldLabel>
         <Textarea
           value={brief.notes ?? ""}
