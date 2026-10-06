@@ -299,7 +299,7 @@ export function buildWhatsAppMessage(brief: BriefData) {
     brief.slogan ? `Slogan : ${brief.slogan}` : "",
     `Secteur : ${brief.industry}`,
     `Type de projet : ${projectTypeLabel(brief.projectType)}`,
-    `Objectifs : ${brief.objectives.join(", ") || "—"}`,
+    `Objectifs : ${brief.objectives.join(", ") || "-"}`,
     `Style visuel : ${styleLabel(brief.visualStyle)}`,
     `Logo : ${logoLabel(brief.hasLogo)}`,
     brief.logoFileName ? `Fichier transmis : ${brief.logoFileName}` : "",
@@ -335,7 +335,7 @@ export function whatsappLink(brief: BriefData) {
 }
 
 export function mailtoLink(brief: BriefData) {
-  const subject = `Brief ${brief.id} — ${brief.companyName || "Nouveau projet"}`;
+  const subject = `Brief ${brief.id} - ${brief.companyName || "Nouveau projet"}`;
   const body = buildWhatsAppMessage(brief).replace(/\*/g, "");
   return `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }
