@@ -1,4 +1,6 @@
 import { SITE, SITE_LINK } from "@/data/site";
+import { estimateLabel } from "@/lib/estimate";
+
 export type ProjectType = "print" | "branding" | "packaging" | "web";
 
 export interface BriefData {
