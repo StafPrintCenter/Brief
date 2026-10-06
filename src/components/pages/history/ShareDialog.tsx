@@ -101,7 +101,7 @@ export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
 
           <button
             type="button"
-            onClick={() => {
+            onClick={async () => {
               if (!brief) return;
               downloadBriefPdf(brief);
               toast.success("PDF généré");
