@@ -68,14 +68,6 @@ export function BriefCard({ brief, onShare, onDelete }: BriefCardProps) {
         </Button>
         <Button
           size="sm"
-          variant="ghost"
-          className="text-destructive hover:text-destructive"
-          onClick={() => onDelete(brief)}
-        >
-          <Trash2 className="size-4" />
-        </Button>
-        <Button
-          size="sm"
           variant="outline"
           onClick={() => {
             const copy = duplicateBrief(brief.id);
@@ -86,6 +78,14 @@ export function BriefCard({ brief, onShare, onDelete }: BriefCardProps) {
         >
           <CopyPlus className="size-4" />
           Dupliquer
+        </Button>
+        <Button
+          size="sm"
+          variant="ghost"
+          className="text-destructive hover:text-destructive"
+          onClick={() => onDelete(brief)}
+        >
+          <Trash2 className="size-4" />
         </Button>
       </div>
     </motion.article>
