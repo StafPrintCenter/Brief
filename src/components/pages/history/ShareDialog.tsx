@@ -29,6 +29,12 @@ function SwapIcon({ done, icon }: { done: boolean; icon: React.ReactNode }) {
 
 export function ShareBriefDialog({ brief, onClose }: ShareBriefDialogProps) {
   const [copied, setCopied] = useState(false);
+  const [done, setDone] = useState<string | null>(null);
+
+  const flash = (key: string) => {
+    setDone(key);
+    window.setTimeout(() => setDone((d) => (d === key ? null : d)), 2000);
+  };
 
   const copyLink = (targetBrief: BriefData) => {
     const url = `${window.location.origin}/summary/${targetBrief.id}`;
