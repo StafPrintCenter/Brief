@@ -44,7 +44,7 @@ function briefLines(brief: BriefData): Line[] {
   if (brief.notes) rows.push(["Précisions", brief.notes]);
   rows.push(["CGU", brief.cguAccepted ? "Acceptées par le client" : "En attente d'acceptation"]);
 
-  return rows.map(([k, v]) => [k, v || "—"]);
+  return rows.map(([k, v]) => [k, v || "-"]);
 }
 
 function hexToRgb(hex: string): [number, number, number] {
