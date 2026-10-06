@@ -310,6 +310,7 @@ export function buildWhatsAppMessage(brief: BriefData) {
     `Délai : ${deadlineLabel(brief.deadline)}`,
     `Réception : ${brief.deliveryMode === "pickup" ? "Retrait à Porto-Novo" : "Livraison"}`,
     brief.budgetRange ? `Budget : ${brief.budgetRange}` : "",
+    `Estimation indicative : ${estimateLabel(brief)}`,
     brief.contactName ? `Contact : ${brief.contactName}` : "",
     brief.contactPhone ? `Téléphone : ${brief.contactPhone}` : "",
     brief.notes ? `Précisions : ${brief.notes}` : "",
