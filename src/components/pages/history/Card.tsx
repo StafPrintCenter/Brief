@@ -78,7 +78,7 @@ export function BriefCard({ brief, onShare, onDelete }: BriefCardProps) {
           size="sm"
           variant="outline"
           onClick={() => {
-            const copy = duplicateBrief(b.id);
+            const copy = duplicateBrief(brief.id);
             if (!copy) return;
             toast.success(`Variante ${copy.id} créée`);
             navigate({ to: "/", search: { resume: copy.id } });
