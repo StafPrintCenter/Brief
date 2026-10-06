@@ -318,6 +318,16 @@ export function buildWhatsAppMessage(brief: BriefData) {
   return lines.join("\n");
 }
 
+export function aiAnalysisLink(brief: BriefData) {
+  const prompt = [
+    `Bonjour, merci d'analyser ce cahier des charges ${SITE.name} (faisabilité technique, cohérence des choix, points d'optimisation et recommandations d'impression/finitions) :`,
+    "",
+    `Référence : ${brief.id}`,
+    buildWhatsAppMessage(brief).replace(/\*/g, ""),
+  ].join("\n");
+  return `${SITE_LINK.aiUrl}/?q=${encodeURIComponent(prompt)}`;
+}
+
 export const WHATSAPP_NUMBER = SITE.whatsapp.replace(/\D/g, "");
 
 export function whatsappLink(brief: BriefData) {
