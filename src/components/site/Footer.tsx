@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { SITE, SITE_LINK } from "@/data/site";
-import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, WhatsAppIcon } from "@/components/site/icons";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, XIcon, WhatsAppIcon, TiktokIcon } from "@/components/site/icons";
 
 export function BriefFooter() {
   const landingBase = SITE_LINK.landingUrl.replace(/\/$/, "");
@@ -11,6 +11,7 @@ export function BriefFooter() {
     { label: "Instagram", href: SITE.socials.instagram, Icon: InstagramIcon },
     { label: "X", href: SITE.socials.x, Icon: XIcon },
     { label: "WhatsApp", href: SITE.whatsappLink, Icon: WhatsAppIcon },
+    { label: "Tiktok", href: SITE.socials.tiktok, Icon: TiktokIcon },
   ];
 
   return (
